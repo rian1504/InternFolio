@@ -38,7 +38,7 @@
                 </p>
             </div>
 
-            {{-- Total Projects --}}
+            {{-- Total Proyek --}}
             <div
                 class="group bg-white rounded-2xl p-8 border-2 border-indigo-200 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-indigo-500 hover:-translate-y-2">
                 <div class="flex items-center justify-between mb-4">
@@ -54,7 +54,7 @@
                     {{ $totalProjects ?? 0 }}+
                 </h3>
                 <p class="text-gray-600 group-hover:text-indigo-700 transition-colors font-medium">
-                    Project Terdokumentasi
+                    Proyek Terdokumentasi
                 </p>
             </div>
 
@@ -92,7 +92,7 @@
                 </p>
             </div>
             <p class="text-blue-100 text-sm">
-                Temukan referensi project, tips, dan insight berharga dari para alumni
+                Temukan referensi proyek, tips, dan insight berharga dari para alumni
             </p>
         </div>
 

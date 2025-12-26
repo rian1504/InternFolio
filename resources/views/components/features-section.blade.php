@@ -51,7 +51,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">Knowledge Sharing</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">
-                    Berbagi ilmu dan tips untuk calon intern berikutnya
+                    Berbagi ilmu dan tips untuk calon anak magang berikutnya
                 </p>
             </div>
 
@@ -83,7 +83,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-3">Alumni Network</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">
-                    Terhubung dengan alumni intern dari berbagai jurusan
+                    Terhubung dengan alumni anak magang dari berbagai jurusan
                 </p>
             </div>
 

@@ -3,12 +3,14 @@
 ])
 
 <div class="relative bg-gradient-to-br from-slate-700 via-blue-800 to-slate-900 py-20 md:py-28 overflow-hidden">
-    
+
     {{-- Background Pattern --}}
     <div class="absolute inset-0 opacity-5">
         <div class="absolute top-10 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl"></div>
         <div class="absolute bottom-10 right-10 w-96 h-96 bg-slate-400 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-300 rounded-full blur-3xl"></div>
+        <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-300 rounded-full blur-3xl">
+        </div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">
@@ -17,8 +19,9 @@
             {{-- LEFT CONTENT --}}
             <div class="text-white text-center lg:text-left">
                 <div class="inline-block mb-4">
-                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full">
-                        👥 Alumni Intern Directory
+                    <span
+                        class="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                        👥 Direktori Alumni Anak Magang
                     </span>
                 </div>
 
@@ -27,7 +30,7 @@
                 </h1>
 
                 <p class="text-lg md:text-xl text-slate-200 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Jelajahi profil lengkap alumni intern dari berbagai departemen dan jurusan. 
+                    Jelajahi profil lengkap alumni anak magang dari berbagai departemen dan jurusan.
                     Lihat pengalaman, project, dan tips mereka.
                 </p>
 
@@ -46,7 +49,8 @@
             {{-- RIGHT STATS --}}
             <div class="grid grid-cols-2 gap-4">
                 {{-- Total Interns Card --}}
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
+                <div
+                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-white mb-2">
                         {{ $totalInterns ?? '100' }}+
                     </div>
@@ -56,17 +60,19 @@
                 </div>
 
                 {{-- Departments Card --}}
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
+                <div
+                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-white mb-2">
                         10+
                     </div>
                     <div class="text-sm text-slate-200 font-medium">
-                        Departments
+                        Departemen
                     </div>
                 </div>
 
-                {{-- Average Duration Card--}}
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
+                {{-- Average Duration Card --}}
+                <div
+                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-white mb-2">
                         3-6
                     </div>
@@ -76,7 +82,8 @@
                 </div>
 
                 {{-- Top Rated Card --}}
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
+                <div
+                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-amber-300 mb-2">
                         ★ 4.5
                     </div>
