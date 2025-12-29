@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable //implements FilamentUser
+class User extends Authenticatable implements HasAvatar //implements FilamentUser
 {
     use HasFactory, Notifiable, SoftDeletes, HasApiTokens;
 
@@ -51,6 +52,11 @@ class User extends Authenticatable //implements FilamentUser
     public function getNameAttribute(): string
     {
         return $this->user_name;
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->user_image ? Storage::url($this->user_image) : null;
     }
 
     public function getRouteKeyName()
