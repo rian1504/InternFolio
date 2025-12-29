@@ -4,7 +4,7 @@
     <x-heros.intern :totalInterns="$interns->total()" />
 
     {{-- CONTENT --}}
-    <div id="intern-list" class="w-full pb-20">
+    <div id="intern-list" class="w-full pb-20 scroll-mt-32">
 
         {{-- FILTER (CENTERED) --}}
         <div class="max-w-6xl mx-auto px-6">

@@ -3,7 +3,7 @@
     {{-- Enhanced HERO --}}
     <x-heros.project :totalProjects="$projects->total()" />
 
-    <div id="project-list" class="w-full py-10">
+    <div id="project-list" class="w-full py-10 scroll-mt-32">
 
         {{-- FILTER (CENTERED) --}}
         <div class="max-w-6xl mx-auto px-6">

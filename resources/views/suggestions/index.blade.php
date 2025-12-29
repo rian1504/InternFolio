@@ -3,7 +3,7 @@
     {{-- Enhanced HERO --}}
     <x-heros.suggestion :totalSuggestions="$suggestions->total()" />
 
-    <div id="suggestion-list" class="w-full py-10">
+    <div id="suggestion-list" class="w-full py-10 scroll-mt-32">
 
         {{-- FILTER (CENTERED) --}}
         <div class="max-w-6xl mx-auto px-6">
