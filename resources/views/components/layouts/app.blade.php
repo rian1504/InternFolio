@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" x-data="{
+    theme: localStorage.getItem('theme') || 'light',
+    init() {
+        if (this.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    }
+}" :class="{ 'dark': theme === 'dark' }">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +18,15 @@
             scroll-behavior: smooth;
         }
     </style>
+    <script>
+        // Prevent flash on page load
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
 
-<body class="{{ $bodyClass ?? '' }}">
+<body class="{{ $bodyClass ?? '' }} dark:bg-gray-900 transition-colors duration-300">
 
     <x-navbar />
 

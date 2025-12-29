@@ -1,10 +1,12 @@
-<x-layouts.app bodyClass="bg-gradient-to-br from-gray-50 via-blue-50/20 to-gray-100">
+<x-layouts.app
+    bodyClass="bg-gradient-to-br from-gray-50 via-blue-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         {{-- Breadcrumb & Share --}}
         <div class="flex items-center justify-between mb-6">
             <nav class="flex items-center gap-2 text-sm" aria-label="Breadcrumb">
-                <a href="{{ route('dashboard.index') }}" class="text-gray-500 hover:text-blue-600 transition">
+                <a href="{{ route('dashboard.index') }}"
+                    class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -15,7 +17,8 @@
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                         clip-rule="evenodd" />
                 </svg>
-                <a href="{{ route('intern.index') }}" class="text-gray-500 hover:text-blue-600 transition">
+                <a href="{{ route('intern.index') }}"
+                    class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
                     Profil Alumni
                 </a>
                 <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -23,7 +26,7 @@
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                         clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-900 font-medium">{{ $intern['user_name'] }}</span>
+                <span class="text-gray-900 dark:text-white font-medium">{{ $intern['user_name'] }}</span>
             </nav>
 
             {{-- Share Button --}}
@@ -32,8 +35,8 @@
 
         {{-- Back Button --}}
         <a href="{{ route('intern.index') }}"
-            class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-white border border-gray-200 rounded-lg
-                  text-gray-700 hover:bg-gray-50 hover:border-blue-300 transition-all group shadow-sm mb-6">
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg
+                  text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all group shadow-sm mb-6">
             <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -43,7 +46,7 @@
 
         {{-- Header Card Enhanced --}}
         <div
-            class="bg-gradient-to-r from-white to-blue-50/50 rounded-2xl shadow-lg p-8 mb-8 hover:shadow-xl transition-shadow border border-blue-100">
+            class="bg-gradient-to-r from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-800/50 rounded-2xl shadow-lg p-8 mb-8 hover:shadow-xl transition-shadow border border-blue-100 dark:border-gray-700">
             <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
                 {{-- Profile Image with Gradient Ring --}}
                 <div class="relative">
@@ -70,7 +73,8 @@
                 </div>
 
                 <div class="flex-1">
-                    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">{{ $intern['user_name'] }}</h1>
+                    <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">{{ $intern['user_name'] }}
+                    </h1>
                     <p class="text-xl text-blue-600 font-semibold mb-3">{{ $intern['position'] }}</p>
 
                     {{-- Enhanced Rating --}}
@@ -85,7 +89,7 @@
                             @endfor
                         </div>
                         <span
-                            class="text-sm font-bold text-yellow-700 bg-gradient-to-r from-yellow-100 to-yellow-200 px-4 py-2 rounded-lg border border-yellow-300 shadow-sm">
+                            class="text-sm font-bold text-yellow-700 dark:text-yellow-300 bg-gradient-to-r from-yellow-100 to-yellow-200 dark:from-yellow-900/50 dark:to-yellow-800/50 px-4 py-2 rounded-lg border border-yellow-300 dark:border-yellow-700 shadow-sm">
                             {{ $intern['rating']['rating_range'] }}/5 Rating
                         </span>
                     </div>
@@ -125,7 +129,7 @@
 
                 {{-- Academic Background --}}
                 <div
-                    class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
                     <div class="flex items-center gap-3 mb-5">
                         <div class="p-2 bg-blue-100 rounded-lg">
                             <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,20 +141,22 @@
                             </svg>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-gray-900">Latar Belakang Akademik</h2>
-                            <p class="text-xs text-gray-500">Pendidikan formal</p>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">Latar Belakang Akademik</h2>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Pendidikan formal</p>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-700 rounded-xl p-6 border border-blue-200 dark:border-gray-600">
                         <div class="space-y-3">
                             <div>
-                                <p class="text-sm text-gray-600 mb-1">Institusi</p>
-                                <p class="text-lg font-bold text-gray-900">{{ $intern['school'] }}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Institusi</p>
+                                <p class="text-lg font-bold text-gray-900 dark:text-white">{{ $intern['school'] }}</p>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-600 mb-1">Program Studi</p>
-                                <p class="text-lg font-semibold text-blue-700">{{ $intern['major'] }}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Program Studi</p>
+                                <p class="text-lg font-semibold text-blue-700 dark:text-blue-400">
+                                    {{ $intern['major'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -158,7 +164,7 @@
 
                 {{-- Proyek Section --}}
                 <div
-                    class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
                     <div class="flex items-center justify-between mb-5">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-indigo-100 rounded-lg">
@@ -169,8 +175,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-xl font-bold text-gray-900">Proyek yang Dikerjakan</h2>
-                                <p class="text-xs text-gray-500">Karya selama magang</p>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white">Proyek yang Dikerjakan</h2>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Karya selama magang</p>
                             </div>
                         </div>
                         @if (count($intern['projects']) > 0)
@@ -185,15 +191,15 @@
                             class="space-y-4 {{ count($intern['projects']) > 2 ? 'max-h-[220px] overflow-y-auto pr-2' : '' }}">
                             @foreach ($intern['projects'] as $project)
                                 <a href="{{ route('project.show', $project['project_uuid']) }}"
-                                    class="block p-5 border-2 border-gray-100 rounded-xl hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md transition-all group">
+                                    class="block p-5 border-2 border-gray-100 dark:border-gray-700 rounded-xl hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:shadow-md transition-all group">
                                     <div class="flex items-start justify-between gap-4">
                                         <div class="flex-1 min-w-0">
                                             <h3
-                                                class="font-bold text-gray-900 group-hover:text-indigo-700 mb-2 transition-colors">
+                                                class="font-bold text-gray-900 dark:text-white group-hover:text-indigo-700 dark:group-hover:text-indigo-400 mb-2 transition-colors">
                                                 {{ $project['project_title'] }}
                                             </h3>
                                             <p
-                                                class="text-sm text-gray-600 leading-relaxed line-clamp-2 break-words overflow-wrap-anywhere">
+                                                class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2 break-words overflow-wrap-anywhere">
                                                 {{ $project['project_description'] }}
                                             </p>
                                         </div>
@@ -219,8 +225,8 @@
                                     </svg>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Belum Ada Proyek</h3>
-                            <p class="text-sm text-gray-500 text-center max-w-md">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Belum Ada Proyek</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 text-center max-w-md">
                                 Alumni ini belum menambahkan proyek yang dikerjakan selama masa magang.
                             </p>
                         </div>
@@ -229,7 +235,7 @@
 
                 {{-- Suggestions Section --}}
                 <div
-                    class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
                     <div class="flex items-center justify-between mb-5">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-cyan-100 rounded-lg">
@@ -240,8 +246,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-xl font-bold text-gray-900">Tips & Saran</h2>
-                                <p class="text-xs text-gray-500">Kontribusi knowledge</p>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white">Tips & Saran</h2>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Kontribusi knowledge</p>
                             </div>
                         </div>
                         @if (count($intern['suggestions']) > 0)
@@ -256,10 +262,10 @@
                             class="space-y-3 {{ count($intern['suggestions']) > 3 ? 'max-h-[215px] overflow-y-auto pr-2' : '' }}">
                             @foreach ($intern['suggestions'] as $suggestion)
                                 <a href="{{ route('suggestion.show', $suggestion['suggestion_uuid']) }}"
-                                    class="block p-4 border-2 border-gray-100 rounded-xl hover:border-cyan-300 hover:bg-cyan-50 hover:shadow-md transition-all group">
+                                    class="block p-4 border-2 border-gray-100 dark:border-gray-700 rounded-xl hover:border-cyan-300 dark:hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/20 hover:shadow-md transition-all group">
                                     <div class="flex items-start justify-between gap-3">
                                         <h3
-                                            class="font-semibold text-gray-900 group-hover:text-cyan-700 transition-colors flex-1 line-clamp-2">
+                                            class="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors flex-1 line-clamp-2">
                                             {{ $suggestion['suggestion_title'] }}
                                         </h3>
                                         <svg class="w-5 h-5 text-gray-400 group-hover:text-cyan-600 transition-colors flex-shrink-0 mt-0.5"
@@ -284,8 +290,9 @@
                                     </svg>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Belum Ada Tips & Saran</h3>
-                            <p class="text-sm text-gray-500 text-center max-w-md">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Belum Ada Tips & Saran
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 text-center max-w-md">
                                 Alumni ini belum membagikan tips atau saran untuk junior magang.
                             </p>
                         </div>
@@ -299,7 +306,7 @@
 
                 {{-- Internship Info --}}
                 <div
-                    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50 rounded-2xl shadow-lg p-6 border-2 border-blue-200/50">
+                    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 rounded-2xl shadow-lg p-6 border-2 border-blue-200/50 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-5">
                         <div class="p-2 bg-blue-100 rounded-lg">
                             <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -309,25 +316,27 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-bold text-gray-900">Info Magang</h3>
-                            <p class="text-xs text-gray-600">Detail magang</p>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Info Magang</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">Detail magang</p>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-blue-100 space-y-4">
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-xl p-5 shadow-sm border border-blue-100 dark:border-gray-600 space-y-4">
                         <div>
-                            <p class="text-xs text-gray-500 mb-1">Departemen</p>
-                            <p class="font-semibold text-gray-900">{{ $intern['department']['department_name'] }}</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Departemen</p>
+                            <p class="font-semibold text-gray-900 dark:text-white">
+                                {{ $intern['department']['department_name'] }}</p>
                         </div>
                         <div>
-                            <p class="text-xs text-gray-500 mb-1">Periode</p>
-                            <p class="text-sm font-medium text-gray-700">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Periode</p>
+                            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
                                 {{ \Carbon\Carbon::parse($intern['join_date'])->format('d M Y') }} -
                                 {{ \Carbon\Carbon::parse($intern['end_date'])->format('d M Y') }}
                             </p>
                         </div>
                         <div>
-                            <p class="text-xs text-gray-500 mb-1">Durasi</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Durasi</p>
                             @php
                                 $start = \Carbon\Carbon::parse($intern['join_date']);
                                 $end = \Carbon\Carbon::parse($intern['end_date']);
@@ -335,7 +344,7 @@
                                 $months = floor($totalDays / 30); // Bulatkan ke bawah untuk bulan
                                 $remainingDays = $totalDays - $months * 30; // Sisa hari
                             @endphp
-                            <p class="text-sm font-medium text-gray-700">
+                            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
                                 {{ $months }}
                                 Bulan{{ $remainingDays > 0 ? ' ' . $remainingDays . ' Hari' : '' }}
                             </p>
@@ -344,7 +353,8 @@
                 </div>
 
                 {{-- Statistics --}}
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-5">
                         <div class="p-2 bg-indigo-100 rounded-lg">
                             <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor"
@@ -354,21 +364,21 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-bold text-gray-900">Statistik</h3>
-                            <p class="text-xs text-gray-500">Kontribusi</p>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Statistik</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Kontribusi</p>
                         </div>
                     </div>
 
                     <div class="space-y-3">
                         <div
-                            class="flex items-center justify-between p-4 bg-indigo-50 rounded-lg border border-indigo-200">
-                            <span class="text-sm text-gray-700">Total Proyek</span>
+                            class="flex items-center justify-between p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg border border-indigo-200 dark:border-indigo-800">
+                            <span class="text-sm text-gray-700 dark:text-gray-300">Total Proyek</span>
                             <span
                                 class="text-2xl font-bold text-indigo-600">{{ count($intern['projects'] ?? []) }}</span>
                         </div>
                         <div
-                            class="flex items-center justify-between p-4 bg-cyan-50 rounded-lg border border-cyan-200">
-                            <span class="text-sm text-gray-700">Total Tips</span>
+                            class="flex items-center justify-between p-4 bg-cyan-50 dark:bg-cyan-900/30 rounded-lg border border-cyan-200 dark:border-cyan-800">
+                            <span class="text-sm text-gray-700 dark:text-gray-300">Total Tips</span>
                             <span
                                 class="text-2xl font-bold text-cyan-600">{{ count($intern['suggestions'] ?? []) }}</span>
                         </div>

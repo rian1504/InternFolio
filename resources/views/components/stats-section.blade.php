@@ -1,4 +1,5 @@
-<div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 md:py-20">
+<div
+    class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-6">
 
         {{-- Section Header --}}
@@ -7,10 +8,10 @@
                 <div class="h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto"></div>
             </div>
 
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
                 Statistik Platform
             </h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
                 Data real-time dokumentasi pengalaman magang
             </p>
         </div>
@@ -20,7 +21,7 @@
 
             {{-- Total Alumni --}}
             <div
-                class="group bg-white rounded-2xl p-8 border-2 border-blue-200 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-blue-500 hover:-translate-y-2">
+                class="group bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-blue-200 dark:border-blue-900/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-2">
                 <div class="flex items-center justify-between mb-4">
                     <div class="p-3 bg-blue-100 rounded-xl group-hover:bg-blue-500 transition-colors">
                         <svg class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" fill="none"
@@ -30,17 +31,19 @@
                         </svg>
                     </div>
                 </div>
-                <h3 class="text-4xl font-extrabold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                <h3
+                    class="text-4xl font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
                     {{ $totalInterns ?? 0 }}+
                 </h3>
-                <p class="text-gray-600 group-hover:text-blue-700 transition-colors font-medium">
+                <p
+                    class="text-gray-600 dark:text-gray-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors font-medium">
                     Alumni Terdaftar
                 </p>
             </div>
 
             {{-- Total Proyek --}}
             <div
-                class="group bg-white rounded-2xl p-8 border-2 border-indigo-200 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-indigo-500 hover:-translate-y-2">
+                class="group bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-indigo-200 dark:border-indigo-900/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-indigo-500 dark:hover:border-indigo-400 hover:-translate-y-2">
                 <div class="flex items-center justify-between mb-4">
                     <div class="p-3 bg-indigo-100 rounded-xl group-hover:bg-indigo-500 transition-colors">
                         <svg class="w-8 h-8 text-indigo-600 group-hover:text-white transition-colors" fill="none"
@@ -50,17 +53,19 @@
                         </svg>
                     </div>
                 </div>
-                <h3 class="text-4xl font-extrabold text-gray-900 group-hover:text-indigo-600 transition-colors mb-2">
+                <h3
+                    class="text-4xl font-extrabold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2">
                     {{ $totalProjects ?? 0 }}+
                 </h3>
-                <p class="text-gray-600 group-hover:text-indigo-700 transition-colors font-medium">
+                <p
+                    class="text-gray-600 dark:text-gray-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors font-medium">
                     Proyek Terdokumentasi
                 </p>
             </div>
 
             {{-- Total Suggestions --}}
             <div
-                class="group bg-white rounded-2xl p-8 border-2 border-cyan-200 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-cyan-500 hover:-translate-y-2">
+                class="group bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-cyan-200 dark:border-cyan-900/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:border-cyan-500 dark:hover:border-cyan-400 hover:-translate-y-2">
                 <div class="flex items-center justify-between mb-4">
                     <div class="p-3 bg-cyan-100 rounded-xl group-hover:bg-cyan-500 transition-colors">
                         <svg class="w-8 h-8 text-cyan-600 group-hover:text-white transition-colors" fill="none"
@@ -70,10 +75,12 @@
                         </svg>
                     </div>
                 </div>
-                <h3 class="text-4xl font-extrabold text-gray-900 group-hover:text-cyan-600 transition-colors mb-2">
+                <h3
+                    class="text-4xl font-extrabold text-gray-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-2">
                     {{ $totalSuggestions ?? 0 }}+
                 </h3>
-                <p class="text-gray-600 group-hover:text-cyan-700 transition-colors font-medium">
+                <p
+                    class="text-gray-600 dark:text-gray-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors font-medium">
                     Tips & Saran
                 </p>
             </div>
@@ -81,7 +88,8 @@
         </div>
 
         {{-- Additional Info Banner --}}
-        <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+        <div
+            class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-2xl p-8 text-center max-w-4xl mx-auto">
             <div class="flex items-center justify-center gap-3 mb-3">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -1,10 +1,12 @@
-<x-layouts.app bodyClass="bg-gradient-to-br from-gray-50 via-cyan-50/30 to-gray-100">
+<x-layouts.app
+    bodyClass="bg-gradient-to-br from-gray-50 via-indigo-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         {{-- Breadcrumb & Share --}}
         <div class="flex items-center justify-between mb-6">
             <nav class="flex items-center gap-2 text-sm" aria-label="Breadcrumb">
-                <a href="{{ route('dashboard.index') }}" class="text-gray-500 hover:text-blue-600 transition">
+                <a href="{{ route('dashboard.index') }}"
+                    class="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -15,7 +17,8 @@
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                         clip-rule="evenodd" />
                 </svg>
-                <a href="{{ route('project.index') }}" class="text-gray-500 hover:text-indigo-600 transition">
+                <a href="{{ route('project.index') }}"
+                    class="text-gray-500 dark:text-gray-400 hover:text-indigo-600 transition">
                     Proyek
                 </a>
                 <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -23,7 +26,7 @@
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                         clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-900 font-medium">Detail</span>
+                <span class="text-gray-900 dark:text-white font-medium">Detail</span>
             </nav>
 
             {{-- Share Button --}}
@@ -32,8 +35,8 @@
 
         {{-- Back Button --}}
         <a href="{{ route('project.index') }}"
-            class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-white border border-gray-200 rounded-lg
-                   text-gray-700 hover:bg-gray-50 hover:border-indigo-300 transition-all group shadow-sm mb-6">
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg
+                   text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-indigo-300 dark:hover:border-indigo-500 transition-all group shadow-sm mb-6">
             <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -48,7 +51,7 @@
 
                 {{-- Proyek Header Card --}}
                 <div
-                    class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow">
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-shadow">
                     <div class="p-8">
                         <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
                             <span class="text-sm font-bold px-4 py-2 rounded-lg shadow-md"
@@ -58,23 +61,23 @@
                             </span>
 
                             <div
-                                class="flex items-center gap-2 bg-indigo-50 px-4 py-2 rounded-lg border-2 border-indigo-200">
+                                class="flex items-center gap-2 bg-indigo-50 dark:bg-indigo-900/30 px-4 py-2 rounded-lg border-2 border-indigo-200 dark:border-indigo-700">
                                 <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span class="text-sm font-bold text-indigo-700">
+                                <span class="text-sm font-bold text-indigo-700 dark:text-indigo-300">
                                     {{ $project['project_duration'] }} Bulan
                                 </span>
                             </div>
                         </div>
 
-                        <h1 class="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
                             {{ $project['project_title'] }}
                         </h1>
 
-                        <p class="text-lg text-gray-700 leading-relaxed">
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                             {{ $project['project_description'] }}
                         </p>
                     </div>
@@ -82,7 +85,7 @@
 
                 {{-- Gallery Section --}}
                 <div
-                    class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
                     <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-indigo-100 rounded-lg">
@@ -93,8 +96,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-xl font-bold text-gray-900">Galeri Proyek</h2>
-                                <p class="text-sm text-gray-500">Klik untuk memperbesar gambar</p>
+                                <h2 class="text-xl font-bold text-gray-900 dark:text-white">Galeri Proyek</h2>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Klik untuk memperbesar gambar</p>
                             </div>
                         </div>
                         <span class="bg-indigo-100 text-indigo-700 text-sm font-bold px-4 py-2 rounded-lg">
@@ -163,7 +166,7 @@
 
                 {{-- Developer Info --}}
                 <div
-                    class="bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 rounded-2xl shadow-lg p-6 border-2 border-indigo-200/50">
+                    class="bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 rounded-2xl shadow-lg p-6 border-2 border-indigo-200/50 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-5">
                         <div class="p-2 bg-indigo-100 rounded-lg">
                             <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor"
@@ -172,10 +175,11 @@
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
-                        <h2 class="text-lg font-bold text-gray-900">Developer</h2>
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Developer</h2>
                     </div>
 
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-indigo-100">
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-xl p-5 shadow-sm border border-indigo-100 dark:border-gray-600">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="relative">
                                 <div class="p-1 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-xl">
@@ -196,10 +200,10 @@
                             </div>
 
                             <div class="flex-1">
-                                <p class="font-bold text-gray-900 mb-1">
+                                <p class="font-bold text-gray-900 dark:text-white mb-1">
                                     {{ $project['user']['user_name'] }}
                                 </p>
-                                <p class="text-sm text-gray-600 flex items-center gap-1.5">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1.5">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -221,7 +225,8 @@
                 </div>
 
                 {{-- Technology Stack --}}
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center justify-between mb-5">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-cyan-100 rounded-lg">
@@ -232,8 +237,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-bold text-gray-900">Tech Stack</h3>
-                                <p class="text-xs text-gray-500">Teknologi yang digunakan</p>
+                                <h3 class="font-bold text-gray-900 dark:text-white">Tech Stack</h3>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Teknologi yang digunakan</p>
                             </div>
                         </div>
                         <span class="bg-cyan-100 text-cyan-700 text-sm font-bold px-3 py-1.5 rounded-lg">
@@ -244,7 +249,7 @@
                     <div class="flex flex-wrap gap-2">
                         @foreach (explode(',', $project['project_technology']) as $tech)
                             <span
-                                class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-cyan-50 to-cyan-100 text-cyan-700 border-2 border-cyan-200 hover:shadow-md hover:scale-105 transition-all">
+                                class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 text-cyan-700 dark:text-cyan-300 border-2 border-cyan-200 dark:border-cyan-700 hover:shadow-md hover:scale-105 transition-all">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"

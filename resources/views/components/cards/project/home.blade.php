@@ -17,7 +17,7 @@
 
 <a href="{{ $url }}" class="block group h-full">
     <div
-        class="bg-white shadow-md hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden h-full flex flex-col border border-gray-100 group-hover:border-blue-300">
+        class="bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-500">
 
         {{-- Thumbnail --}}
         <div class="relative h-56 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
@@ -52,13 +52,13 @@
 
             {{-- Title --}}
             <h3
-                class="font-bold text-xl text-gray-900 leading-tight mb-3 group-hover:text-blue-600 transition line-clamp-2">
+                class="font-bold text-xl text-gray-900 dark:text-white leading-tight mb-3 group-hover:text-blue-600 transition line-clamp-2">
                 {{ $project_title }}
             </h3>
 
             {{-- Description --}}
             @if ($project_description)
-                <p class="text-sm text-gray-600 mb-4 line-clamp-3 flex-1">
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-1">
                     {{ $project_description }}
                 </p>
             @endif
@@ -68,12 +68,13 @@
                 <div class="flex flex-wrap gap-2 mb-4">
                     @foreach (array_slice($technologies, 0, 3) as $tech)
                         <span
-                            class="text-xs px-3 py-1 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200">
+                            class="text-xs px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-semibold rounded-full border border-blue-200 dark:border-blue-800">
                             {{ $tech }}
                         </span>
                     @endforeach
                     @if (count($technologies) > 3)
-                        <span class="text-xs px-3 py-1 bg-gray-100 text-gray-600 font-semibold rounded-full">
+                        <span
+                            class="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-full">
                             +{{ count($technologies) - 3 }}
                         </span>
                     @endif
@@ -81,7 +82,7 @@
             @endif
 
             {{-- Author --}}
-            <div class="flex items-center gap-2 pt-4 border-t border-gray-100">
+            <div class="flex items-center gap-2 pt-4 border-t border-gray-100 dark:border-gray-700">
                 @if ($user_image)
                     <img src="{{ asset('storage/' . $user_image) }}" alt="{{ $user_name }}"
                         class="w-8 h-8 rounded-full object-cover ring-2 ring-blue-100">
@@ -92,8 +93,8 @@
                     </div>
                 @endif
                 <div>
-                    <p class="text-xs text-gray-500">Dibuat oleh</p>
-                    <p class="text-sm font-semibold text-gray-700">{{ $user_name }}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Dibuat oleh</p>
+                    <p class="text-sm font-semibold text-gray-700 dark:text-gray-300">{{ $user_name }}</p>
                 </div>
             </div>
 

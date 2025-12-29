@@ -18,8 +18,8 @@
 
 <a href="{{ $url }}" class="block group h-full">
     <div
-        class="h-full bg-white shadow-md hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden 
-                border border-gray-100 group-hover:border-indigo-300 transform group-hover:-translate-y-2">
+        class="h-full bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden 
+                border border-gray-100 dark:border-gray-700 group-hover:border-indigo-300 dark:group-hover:border-indigo-500 transform group-hover:-translate-y-2">
 
         {{-- Thumbnail dengan Zoom Effect --}}
         <div class="relative h-56 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
@@ -67,13 +67,13 @@
 
             {{-- Title --}}
             <h3
-                class="font-bold text-xl text-gray-900 leading-tight mb-3 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+                class="font-bold text-xl text-gray-900 dark:text-white leading-tight mb-3 line-clamp-2 group-hover:text-indigo-600 transition-colors">
                 {{ $project_title }}
             </h3>
 
             {{-- Description --}}
             @if ($project_description)
-                <p class="text-sm text-gray-600 mb-4 line-clamp-3 flex-1">
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-1">
                     {{ $project_description }}
                 </p>
             @endif
@@ -81,7 +81,7 @@
             {{-- Technologies --}}
             @if (!empty($technologies))
                 <div class="mb-4">
-                    <p class="text-xs text-gray-500 font-semibold mb-2 flex items-center gap-1">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 font-semibold mb-2 flex items-center gap-1">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -91,12 +91,13 @@
                     <div class="flex flex-wrap gap-2">
                         @foreach (array_slice($technologies, 0, 4) as $tech)
                             <span
-                                class="text-xs px-2.5 py-1 bg-indigo-50 text-indigo-700 font-semibold rounded-md border border-indigo-200 hover:bg-indigo-100 transition">
+                                class="text-xs px-2.5 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-semibold rounded-md border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 transition">
                                 {{ $tech }}
                             </span>
                         @endforeach
                         @if (count($technologies) > 4)
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 text-gray-600 font-semibold rounded-md">
+                            <span
+                                class="text-xs px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-md">
                                 +{{ count($technologies) - 4 }} more
                             </span>
                         @endif

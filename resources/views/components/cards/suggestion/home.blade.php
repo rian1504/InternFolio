@@ -10,7 +10,7 @@
 ])
 
 <a href="{{ $url }}" class="block group">
-    <div class="bg-white rounded-xl shadow-sm group-hover:shadow-lg transition-all duration-300 p-6 border-l-4 group-hover:border-l-8"
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm group-hover:shadow-lg transition-all duration-300 p-6 border-l-4 group-hover:border-l-8"
         style="border-color: #{{ substr($bg_color, -6) }};">
 
         {{-- Header: Category & Time --}}
@@ -35,7 +35,7 @@
 
         {{-- Title --}}
         <h3
-            class="font-bold text-gray-900 text-base leading-snug mb-3 line-clamp-2 group-hover:text-blue-600 transition">
+            class="font-bold text-gray-900 dark:text-white text-base leading-snug mb-3 line-clamp-2 group-hover:text-blue-600 transition">
             {{ $suggestion_title }}
         </h3>
 
@@ -50,9 +50,9 @@
                     {{ strtoupper(substr($user_name, 0, 1)) }}
                 </div>
             @endif
-            <span class="text-gray-600">
-                <span class="text-gray-400">by</span> <span
-                    class="font-semibold text-gray-700">{{ $user_name }}</span>
+            <span class="text-gray-600 dark:text-gray-400">
+                <span class="text-gray-400 dark:text-gray-500">by</span> <span
+                    class="font-semibold text-gray-700 dark:text-gray-300">{{ $user_name }}</span>
             </span>
         </div>
 

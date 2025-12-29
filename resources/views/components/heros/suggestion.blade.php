@@ -2,7 +2,8 @@
     'totalSuggestions' => 0,
 ])
 
-<div class="relative bg-gradient-to-br from-slate-700 via-cyan-800 to-slate-900 py-20 md:py-28 overflow-hidden">
+<div
+    class="relative bg-gradient-to-br from-slate-700 via-cyan-800 to-slate-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900 py-20 md:py-28 overflow-hidden">
 
     {{-- Background Pattern --}}
     <div class="absolute inset-0 opacity-5">

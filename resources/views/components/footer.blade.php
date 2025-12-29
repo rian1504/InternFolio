@@ -1,4 +1,5 @@
-<footer class="relative w-full bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden">
+<footer
+    class="relative w-full bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900 text-white overflow-hidden">
 
     {{-- Background Pattern --}}
     <div class="absolute inset-0 opacity-10">
@@ -146,7 +147,7 @@
                         </a>
 
                         {{-- LinkedIn --}}
-                        <a href="https://linkedin.com/in/rianabdullah" target="_blank"
+                        <a href="https://linkedin.com/in/rian-abdullah" target="_blank"
                             class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20
                                   hover:bg-blue-500 hover:border-blue-500 hover:scale-110 
                                   transform transition-all duration-200 group">

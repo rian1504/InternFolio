@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" x-data="{
+    theme: localStorage.getItem('theme') || 'light',
+    init() {
+        if (this.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    }
+}" :class="{ 'dark': theme === 'dark' }">
 
 <head>
     <meta charset="UTF-8">
@@ -45,7 +52,8 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-100 min-h-screen">
+<body
+    class="bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
 
     <div class="min-h-screen flex items-center justify-center px-6 py-12">
         <div class="max-w-2xl mx-auto text-center">
@@ -82,10 +90,10 @@
 
             {{-- Message --}}
             <div class="relative z-10 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                     Oops! Halaman Tidak Ditemukan
                 </h2>
-                <p class="text-lg text-gray-600 max-w-md mx-auto leading-relaxed">
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-md mx-auto leading-relaxed">
                     Sepertinya halaman yang Anda cari tidak ada atau sudah dipindahkan.
                     Jangan khawatir, mari kita kembali ke jalur yang benar!
                 </p>
@@ -103,7 +111,7 @@
                 </a>
 
                 <button onclick="history.back()"
-                    class="inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-700 font-bold text-lg rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-gray-50 transition-all shadow-md hover:shadow-lg">
+                    class="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-bold text-lg rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-md hover:shadow-lg">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -113,7 +121,8 @@
             </div>
 
             {{-- Quick Links --}}
-            <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-100">
+            <div
+                class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
                 <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
                     Atau coba kunjungi halaman ini
                 </h3>

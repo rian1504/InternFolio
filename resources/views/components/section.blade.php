@@ -10,7 +10,9 @@
 @php
     $classes = $attributes->get('class');
     $bgClass =
-        $background === 'alternate' ? 'bg-gradient-to-br from-blue-50/30 via-white to-indigo-50/30' : 'bg-transparent';
+        $background === 'alternate'
+            ? 'bg-gradient-to-br from-blue-50/30 via-white to-indigo-50/30 dark:from-gray-800/50 dark:via-gray-900 dark:to-gray-800/50'
+            : 'bg-transparent';
 @endphp
 
 <div id="{{ $id }}" {{ $attributes->merge(['class' => "relative py-16 px-6 rounded-3xl $bgClass"]) }}>
@@ -24,13 +26,13 @@
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div class="flex-1">
                 @if ($title)
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 leading-tight">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight">
                         {{ $title }}
                     </h2>
                 @endif
 
                 @if ($subtitle)
-                    <p class="text-gray-600 text-lg max-w-2xl">{{ $subtitle }}</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl">{{ $subtitle }}</p>
                 @endif
             </div>
 
