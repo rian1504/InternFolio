@@ -66,7 +66,7 @@
 
                 <div x-show="open" @click.away="open = false" x-transition
                     class="absolute z-50 w-full mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-80 overflow-hidden">
-                    <div class="p-2 border-b border-gray-200">
+                    <div class="p-2 border-b border-gray-200 dark:border-gray-600">
                         <div class="relative">
                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
@@ -75,26 +75,27 @@
                             </svg>
                             <input type="text" x-model="searchTerm" @input="debouncedSearch()"
                                 placeholder="Cari department..."
-                                class="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                class="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                     </div>
 
                     <div class="max-h-60 overflow-y-auto">
                         <button type="button" @click="selectItem('', placeholder)"
-                            class="w-full px-4 py-2 text-left text-sm hover:bg-blue-50 transition"
-                            :class="selectedValue === '' && 'bg-blue-100 font-medium'">
+                            class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30 transition"
+                            :class="selectedValue === '' && 'bg-blue-100 dark:bg-blue-900/50 font-medium'">
                             <span x-text="placeholder"></span>
                         </button>
 
                         <template x-for="item in filteredItems" :key="item.value">
                             <button type="button" @click="selectItem(item.value, item.label)"
-                                class="w-full px-4 py-2 text-left text-sm hover:bg-blue-50 transition"
-                                :class="selectedValue === item.value && 'bg-blue-100 font-medium'">
+                                class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30 transition"
+                                :class="selectedValue === item.value && 'bg-blue-100 dark:bg-blue-900/50 font-medium'">
                                 <span x-text="item.label"></span>
                             </button>
                         </template>
 
-                        <div x-show="filteredItems.length === 0" class="px-4 py-8 text-center text-sm text-gray-500">
+                        <div x-show="filteredItems.length === 0"
+                            class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
                             Tidak ada hasil ditemukan
                         </div>
                     </div>
@@ -118,7 +119,7 @@
                     <input type="hidden" name="category_uuid" :value="selectedValue">
 
                     <button type="button" @click="open = !open"
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition cursor-pointer text-left flex items-center justify-between">
+                        class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition cursor-pointer text-left flex items-center justify-between">
                         <span x-text="selectedLabel" class="truncate"></span>
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
@@ -127,8 +128,8 @@
                     </button>
 
                     <div x-show="open" @click.away="open = false" x-transition
-                        class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-80 overflow-hidden">
-                        <div class="p-2 border-b border-gray-200">
+                        class="absolute z-50 w-full mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-80 overflow-hidden">
+                        <div class="p-2 border-b border-gray-200 dark:border-gray-600">
                             <div class="relative">
                                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,27 +138,27 @@
                                 </svg>
                                 <input type="text" x-model="searchTerm" @input="debouncedSearch()"
                                     placeholder="Cari kategori..."
-                                    class="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    class="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                         </div>
 
                         <div class="max-h-60 overflow-y-auto">
                             <button type="button" @click="selectItem('', placeholder)"
-                                class="w-full px-4 py-2 text-left text-sm hover:bg-blue-50 transition"
-                                :class="selectedValue === '' && 'bg-blue-100 font-medium'">
+                                class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30 transition"
+                                :class="selectedValue === '' && 'bg-blue-100 dark:bg-blue-900/50 font-medium'">
                                 <span x-text="placeholder"></span>
                             </button>
 
                             <template x-for="item in filteredItems" :key="item.value">
                                 <button type="button" @click="selectItem(item.value, item.label)"
-                                    class="w-full px-4 py-2 text-left text-sm hover:bg-blue-50 transition"
-                                    :class="selectedValue === item.value && 'bg-blue-100 font-medium'">
+                                    class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30 transition"
+                                    :class="selectedValue === item.value && 'bg-blue-100 dark:bg-blue-900/50 font-medium'">
                                     <span x-text="item.label"></span>
                                 </button>
                             </template>
 
                             <div x-show="filteredItems.length === 0"
-                                class="px-4 py-8 text-center text-sm text-gray-500">
+                                class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
                                 Tidak ada hasil ditemukan
                             </div>
                         </div>
