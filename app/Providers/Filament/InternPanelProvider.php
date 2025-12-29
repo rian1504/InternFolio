@@ -23,6 +23,8 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Awcodes\LightSwitch\LightSwitchPlugin;
+use Awcodes\LightSwitch\Enums\Alignment;
 
 class InternPanelProvider extends PanelProvider
 {
@@ -49,6 +51,7 @@ class InternPanelProvider extends PanelProvider
             ->simplePageMaxContentWidth(Width::Small)
             ->unsavedChangesAlerts()
             ->topNavigation()
+            ->viteTheme('resources/css/filament/intern/theme.css')
             ->discoverResources(in: app_path('Filament/Intern/Resources'), for: 'App\Filament\Intern\Resources')
             ->discoverPages(in: app_path('Filament/Intern/Pages'), for: 'App\Filament\Intern\Pages')
             ->pages([
@@ -57,7 +60,10 @@ class InternPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Intern/Widgets'), for: 'App\Filament\Intern\Widgets')
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
+            ])
+            ->plugins([
+                LightSwitchPlugin::make()
+                    ->position(Alignment::TopCenter),
             ])
             ->middleware([
                 EncryptCookies::class,
