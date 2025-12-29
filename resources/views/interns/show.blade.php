@@ -48,9 +48,16 @@
                 {{-- Profile Image with Gradient Ring --}}
                 <div class="relative">
                     <div class="p-1 bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-600 rounded-2xl">
-                        <img src="{{ asset('storage/' . $intern['user_image']) }}"
-                            class="w-32 h-32 rounded-xl object-cover ring-4 ring-white"
-                            alt="{{ $intern['user_name'] }}">
+                        @if ($intern['user_image'])
+                            <img src="{{ asset('storage/' . $intern['user_image']) }}"
+                                class="w-32 h-32 rounded-xl object-cover ring-4 ring-white"
+                                alt="{{ $intern['user_name'] }}">
+                        @else
+                            <div
+                                class="w-32 h-32 bg-white rounded-xl flex items-center justify-center text-blue-600 font-bold text-5xl ring-4 ring-white">
+                                {{ strtoupper(substr($intern['user_name'], 0, 1)) }}
+                            </div>
+                        @endif
                     </div>
                     <div
                         class="absolute -bottom-2 -right-2 bg-indigo-500 w-8 h-8 rounded-full border-4 border-white flex items-center justify-center">

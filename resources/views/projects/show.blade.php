@@ -179,9 +179,16 @@
                         <div class="flex items-center gap-4 mb-4">
                             <div class="relative">
                                 <div class="p-1 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-xl">
-                                    <img src="{{ asset('storage/' . $project['user']['user_image']) }}"
-                                        class="w-16 h-16 rounded-lg object-cover ring-2 ring-white"
-                                        alt="{{ $project['user']['user_name'] }}">
+                                    @if ($project['user']['user_image'])
+                                        <img src="{{ asset('storage/' . $project['user']['user_image']) }}"
+                                            class="w-16 h-16 rounded-lg object-cover ring-2 ring-white"
+                                            alt="{{ $project['user']['user_name'] }}">
+                                    @else
+                                        <div
+                                            class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-indigo-600 font-bold text-2xl ring-2 ring-white">
+                                            {{ strtoupper(substr($project['user']['user_name'], 0, 1)) }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div
                                     class="absolute -bottom-1 -right-1 bg-indigo-500 w-5 h-5 rounded-full border-2 border-white">
