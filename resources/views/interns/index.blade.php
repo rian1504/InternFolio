@@ -1,7 +1,7 @@
 <x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
 
     {{-- Enhanced HERO --}}
-    <x-heros.intern :totalInterns="$interns->total()" />
+    <x-heros.intern :totalInterns="$interns->total()" :totalDepartments="$stats['totalDepartments']" :averageRating="$stats['averageRating']" />
 
     {{-- CONTENT --}}
     <div id="intern-list" class="w-full pb-20 scroll-mt-32">

@@ -1,5 +1,7 @@
 @props([
     'totalInterns' => 0,
+    'totalDepartments' => 0,
+    'averageRating' => '0.0',
 ])
 
 <div
@@ -53,7 +55,7 @@
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-white mb-2">
-                        {{ $totalInterns ?? '100' }}+
+                        {{ $totalInterns }}+
                     </div>
                     <div class="text-sm text-slate-200 font-medium">
                         Total Alumni
@@ -64,29 +66,18 @@
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-white mb-2">
-                        10+
+                        {{ $totalDepartments }}+
                     </div>
                     <div class="text-sm text-slate-200 font-medium">
                         Departemen
                     </div>
                 </div>
 
-                {{-- Average Duration Card --}}
-                <div
-                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
-                    <div class="text-5xl font-bold text-white mb-2">
-                        3-6
-                    </div>
-                    <div class="text-sm text-slate-200 font-medium">
-                        Bulan Rata-rata
-                    </div>
-                </div>
-
                 {{-- Top Rated Card --}}
                 <div
-                    class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
+                    class="col-span-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition transform hover:scale-105">
                     <div class="text-5xl font-bold text-amber-300 mb-2">
-                        ★ 4.5
+                        ★ {{ $averageRating }}
                     </div>
                     <div class="text-sm text-slate-200 font-medium">
                         Rating Rata-rata

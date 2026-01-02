@@ -15,11 +15,12 @@ class InternController extends Controller
     {
         $validated = $request->validated();
         $interns = $service->index($validated);
+        $stats = $service->stats();
 
         // Load all departments for dropdown (ignore search parameter)
         $departments = $masterService->list_master_department([]);
 
-        return view('interns.index', compact('interns', 'departments'));
+        return view('interns.index', compact('interns', 'departments', 'stats'));
     }
 
     public function show(InternService $service, User $user)

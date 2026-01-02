@@ -56,6 +56,34 @@ class ProjectService
         });
     }
 
+    public function stats()
+    {
+        $cacheKey = 'project_stats';
+        $ttl = 60 * 60;
+
+        return Cache::remember($cacheKey, $ttl, function () {
+            // Total Kategori yang memiliki proyek
+            $totalCategories = Category::query()
+                ->where('category_type', 'Project')
+                // ->whereHas('projects')
+                ->count();
+
+            // Total Teknologi unik
+            $technologies = Project::query()
+                ->pluck('project_technology')
+                ->flatMap(function ($tech) {
+                    return array_map('trim', explode(',', $tech));
+                })
+                ->unique()
+                ->count();
+
+            return [
+                'totalCategories' => $totalCategories,
+                'totalTechnologies' => $technologies,
+            ];
+        });
+    }
+
     public function index(array $validated)
     {
         $page = $validated['page'] ?? 1;

@@ -1,7 +1,7 @@
 <x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
 
     {{-- Enhanced HERO --}}
-    <x-heros.project :totalProjects="$projects->total()" />
+    <x-heros.project :totalProjects="$projects->total()" :totalCategories="$stats['totalCategories']" :totalTechnologies="$stats['totalTechnologies']" />
 
     <div id="project-list" class="w-full py-10 scroll-mt-32">
 

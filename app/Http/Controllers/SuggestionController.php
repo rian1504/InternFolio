@@ -16,6 +16,7 @@ class SuggestionController extends Controller
     {
         $validated = $request->validated();
         $suggestions = $service->index($validated);
+        $stats = $service->stats();
 
         // Load all departments and categories for dropdown (ignore search parameter)
         $departments = $masterService->list_master_department([]);
@@ -23,7 +24,7 @@ class SuggestionController extends Controller
             'type' => 'Suggestion',
         ]);
 
-        return view('suggestions.index', compact('suggestions', 'departments', 'categories'));
+        return view('suggestions.index', compact('suggestions', 'departments', 'categories', 'stats'));
     }
 
     public function show(SuggestionService $service, Suggestion $suggestion)

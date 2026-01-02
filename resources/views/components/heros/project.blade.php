@@ -1,5 +1,7 @@
 @props([
     'totalProjects' => 0,
+    'totalCategories' => 0,
+    'totalTechnologies' => 0,
 ])
 
 <div
@@ -41,19 +43,19 @@
             <div class="flex flex-wrap justify-center gap-6 mb-10">
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">{{ $totalProjects ?? '50' }}+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalProjects }}+</div>
                     <div class="text-sm text-slate-200">Total Proyek</div>
                 </div>
 
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">15+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalCategories }}+</div>
                     <div class="text-sm text-slate-200">Kategori</div>
                 </div>
 
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">30+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalTechnologies }}+</div>
                     <div class="text-sm text-slate-200">Teknologi</div>
                 </div>
             </div>

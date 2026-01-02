@@ -1,7 +1,7 @@
 <x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
 
     {{-- Enhanced HERO --}}
-    <x-heros.suggestion :totalSuggestions="$suggestions->total()" />
+    <x-heros.suggestion :totalSuggestions="$suggestions->total()" :totalCategories="$stats['totalCategories']" :totalContributors="$stats['totalContributors']" />
 
     <div id="suggestion-list" class="w-full py-10 scroll-mt-32">
 

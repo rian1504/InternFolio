@@ -48,6 +48,30 @@ class SuggestionService
         });
     }
 
+    public function stats()
+    {
+        $cacheKey = 'suggestion_stats';
+        $ttl = 60 * 60;
+
+        return Cache::remember($cacheKey, $ttl, function () {
+            // Total Kategori yang memiliki suggestion
+            $totalCategories = Category::query()
+                ->where('category_type', 'Suggestion')
+                // ->whereHas('suggestions')
+                ->count();
+
+            // Total Kontributor unik
+            $totalContributors = Suggestion::query()
+                ->distinct('user_id')
+                ->count('user_id');
+
+            return [
+                'totalCategories' => $totalCategories,
+                'totalContributors' => $totalContributors,
+            ];
+        });
+    }
+
     public function index(array $validated)
     {
         $page = $validated['page'] ?? 1;

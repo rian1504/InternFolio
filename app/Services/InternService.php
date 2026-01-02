@@ -52,6 +52,35 @@ class InternService
         });
     }
 
+    public function stats()
+    {
+        $cacheKey = 'intern_stats';
+        $ttl = 60 * 60;
+
+        return Cache::remember($cacheKey, $ttl, function () {
+            // Total Departments yang memiliki intern
+            $totalDepartments = Department::query()
+                ->whereHas('users', function ($query) {
+                    $query->where('is_admin', 0);
+                })
+                ->count();
+
+            // Rating Rata-rata
+            $averageRating = User::query()
+                ->where('is_admin', 0)
+                ->whereHas('rating')
+                ->with('rating:user_id,rating_range')
+                ->get()
+                ->pluck('rating.rating_range')
+                ->avg();
+
+            return [
+                'totalDepartments' => $totalDepartments,
+                'averageRating' => $averageRating ? number_format($averageRating, 1) : '0.0',
+            ];
+        });
+    }
+
     public function index(array $validated)
     {
         $page = $validated['page'] ?? 1;

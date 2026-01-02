@@ -15,6 +15,7 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
         $projects = $service->index($validated);
+        $stats = $service->stats();
 
         // Load all departments and categories for dropdown (ignore search parameter)
         $departments = $masterService->list_master_department([]);
@@ -22,7 +23,7 @@ class ProjectController extends Controller
             'type' => 'Project',
         ]);
 
-        return view('projects.index', compact('projects', 'departments', 'categories'));
+        return view('projects.index', compact('projects', 'departments', 'categories', 'stats'));
     }
 
     public function show(ProjectService $service, Project $project)

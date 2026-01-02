@@ -1,5 +1,7 @@
 @props([
     'totalSuggestions' => 0,
+    'totalCategories' => 0,
+    'totalContributors' => 0,
 ])
 
 <div
@@ -42,19 +44,19 @@
             <div class="flex flex-wrap justify-center gap-6 mb-10">
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">{{ $totalSuggestions ?? '75' }}+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalSuggestions }}+</div>
                     <div class="text-sm text-slate-200">Total Tips</div>
                 </div>
 
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">8+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalCategories }}+</div>
                     <div class="text-sm text-slate-200">Kategori</div>
                 </div>
 
                 <div
                     class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-4 hover:bg-white/15 transition">
-                    <div class="text-3xl font-bold text-white">50+</div>
+                    <div class="text-3xl font-bold text-white">{{ $totalContributors }}+</div>
                     <div class="text-sm text-slate-200">Kontributor</div>
                 </div>
             </div>
