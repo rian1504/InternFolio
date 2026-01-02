@@ -69,9 +69,7 @@
                             join_date="{{ $intern->join_date }}" end_date="{{ $intern->end_date }}"
                             school="{{ $intern->school }}" major="{{ $intern->major }}"
                             instagram_url="{{ $intern->instagram_url }}" linkedin_url="{{ $intern->linkedin_url }}"
-                            github_url="{{ $intern->github_url }}"
-                            rating_range="{{ $intern->rating->rating_range ?? null }}"
-                            user_image="{{ $intern->user_image ?? null }}"
+                            github_url="{{ $intern->github_url }}" user_image="{{ $intern->user_image ?? null }}"
                             url="{{ route('intern.index') . '/' . $intern->user_uuid }}" />
                     @endforeach
                 </div>

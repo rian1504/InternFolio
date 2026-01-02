@@ -120,11 +120,11 @@
                                 <div class="p-1 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl">
                                     @if ($suggestion['user']['user_image'])
                                         <img src="{{ asset('storage/' . $suggestion['user']['user_image']) }}"
-                                            class="w-16 h-16 rounded-lg object-cover ring-2 ring-white"
+                                            class="w-16 h-16 rounded-lg object-cover ring-2 ring-white dark:ring-gray-600"
                                             alt="{{ $suggestion['user']['user_name'] }}">
                                     @else
                                         <div
-                                            class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-cyan-600 font-bold text-2xl ring-2 ring-white">
+                                            class="w-16 h-16 bg-gradient-to-br from-cyan-100 to-cyan-200 dark:from-gray-600 dark:to-gray-500 rounded-lg flex items-center justify-center text-cyan-600 dark:text-cyan-300 font-bold text-2xl ring-2 ring-white dark:ring-gray-600">
                                             {{ strtoupper(substr($suggestion['user']['user_name'], 0, 1)) }}
                                         </div>
                                     @endif

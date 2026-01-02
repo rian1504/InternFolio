@@ -53,11 +53,11 @@
                     <div class="p-1 bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-600 rounded-2xl">
                         @if ($intern['user_image'])
                             <img src="{{ asset('storage/' . $intern['user_image']) }}"
-                                class="w-32 h-32 rounded-xl object-cover ring-4 ring-white"
+                                class="w-32 h-32 rounded-xl object-cover ring-4 ring-white dark:ring-gray-700"
                                 alt="{{ $intern['user_name'] }}">
                         @else
                             <div
-                                class="w-32 h-32 bg-white rounded-xl flex items-center justify-center text-blue-600 font-bold text-5xl ring-4 ring-white">
+                                class="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-gray-700 dark:to-gray-600 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-5xl ring-4 ring-white dark:ring-gray-700">
                                 {{ strtoupper(substr($intern['user_name'], 0, 1)) }}
                             </div>
                         @endif
@@ -75,23 +75,44 @@
                 <div class="flex-1">
                     <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">{{ $intern['user_name'] }}
                     </h1>
-                    <p class="text-xl text-blue-600 font-semibold mb-3">{{ $intern['position'] }}</p>
+                    <p class="text-xl text-blue-600 font-semibold mb-4">{{ $intern['position'] }}</p>
 
-                    {{-- Enhanced Rating --}}
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="flex items-center gap-1">
-                            @for ($i = 1; $i <= 5; $i++)
-                                <svg class="w-6 h-6 {{ $i <= $intern['rating']['rating_range'] ? 'text-yellow-400' : 'text-gray-300' }}"
-                                    fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.46 1.287 3.97c.3.921-.755 1.688-1.54 1.118L10 13.348l-3.365 2.427c-.784.57-1.838-.197-1.539-1.118l1.286-3.97-3.385-2.46c-.783-.57-.38-1.81.588-1.81h4.178l1.286-3.97z" />
-                                </svg>
-                            @endfor
+                    {{-- Testimonial/Rating Section --}}
+                    <div
+                        class="bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-gray-700 dark:to-gray-700 rounded-xl p-4 border border-amber-200 dark:border-amber-800/30 mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <span class="text-sm font-semibold text-amber-700 dark:text-amber-300">Testimoni Pengalaman
+                                Magang</span>
                         </div>
-                        <span
-                            class="text-sm font-bold text-yellow-700 dark:text-yellow-300 bg-gradient-to-r from-yellow-100 to-yellow-200 dark:from-yellow-900/50 dark:to-yellow-800/50 px-4 py-2 rounded-lg border border-yellow-300 dark:border-yellow-700 shadow-sm">
-                            {{ $intern['rating']['rating_range'] }}/5 Rating
-                        </span>
+                        {{-- Rating Stars --}}
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="flex items-center gap-0.5">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <svg class="w-6 h-6 {{ $i <= $intern['rating']['rating_range'] ? 'text-amber-400' : 'text-gray-300 dark:text-gray-500' }}"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.46 1.287 3.97c.3.921-.755 1.688-1.54 1.118L10 13.348l-3.365 2.427c-.784.57-1.838-.197-1.539-1.118l1.286-3.97-3.385-2.46c-.783-.57-.38-1.81.588-1.81h4.178l1.286-3.97z" />
+                                    </svg>
+                                @endfor
+                            </div>
+                            <span class="text-sm font-bold text-amber-700 dark:text-amber-300">
+                                {{ $intern['rating']['rating_range'] }}/5
+                            </span>
+                        </div>
+                        {{-- Description --}}
+                        @if ($intern['rating']['rating_description'])
+                            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed italic">
+                                "{{ $intern['rating']['rating_description'] }}"
+                            </p>
+                        @else
+                            <p class="text-gray-500 dark:text-gray-400 text-sm italic">
+                                Belum ada deskripsi pengalaman.
+                            </p>
+                        @endif
                     </div>
 
                     {{-- Enhanced Social Links --}}

@@ -128,7 +128,7 @@ class InternService
                     $query->select('department_id', 'department_name');
                 },
                 'rating' => function ($query) {
-                    $query->select('user_id', 'rating_range');
+                    $query->select('user_id', 'rating_range', 'rating_description');
                 },
                 'projects' => function ($query) {
                     $query->select('user_id', 'category_id', 'project_uuid', 'project_title', 'project_description')

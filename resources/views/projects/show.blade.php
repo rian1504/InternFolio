@@ -185,11 +185,11 @@
                                 <div class="p-1 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-xl">
                                     @if ($project['user']['user_image'])
                                         <img src="{{ asset('storage/' . $project['user']['user_image']) }}"
-                                            class="w-16 h-16 rounded-lg object-cover ring-2 ring-white"
+                                            class="w-16 h-16 rounded-lg object-cover ring-2 ring-white dark:ring-gray-600"
                                             alt="{{ $project['user']['user_name'] }}">
                                     @else
                                         <div
-                                            class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-indigo-600 font-bold text-2xl ring-2 ring-white">
+                                            class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-gray-600 dark:to-gray-500 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-2xl ring-2 ring-white dark:ring-gray-600">
                                             {{ strtoupper(substr($project['user']['user_name'], 0, 1)) }}
                                         </div>
                                     @endif

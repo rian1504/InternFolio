@@ -22,7 +22,6 @@
                         <x-cards.intern.home user_name="{{ $intern->user_name }}" position="{{ $intern->position }}"
                             join_date="{{ $intern->join_date }}" end_date="{{ $intern->end_date }}"
                             school="{{ $intern->school }}" major="{{ $intern->major }}"
-                            rating_range="{{ $intern->rating->rating_range ?? null }}"
                             user_image="{{ $intern->user_image ?? null }}"
                             url="{{ route('intern.index') . '/' . $intern->user_uuid }}" />
                     @endforeach
