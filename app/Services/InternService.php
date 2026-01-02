@@ -23,6 +23,7 @@ class InternService
             'major',
             'linkedin_url',
             'instagram_url',
+            'github_url',
         ];
 
         // Key Redis
@@ -88,6 +89,7 @@ class InternService
             'major',
             'linkedin_url',
             'instagram_url',
+            'github_url',
         ];
 
         return Cache::remember($cacheKey, $ttl, function () use ($data, $departmentId, $page, $search, $perPage, $sort) {

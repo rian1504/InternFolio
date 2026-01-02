@@ -26,7 +26,7 @@
                 </div>
 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-                    Dokumentasi & <span class="text-blue-200">Knowledge Sharing</span>
+                    Dokumentasi & <span class="text-blue-200">Knowledge Sharing PT XYZ</span>
                 </h1>
 
                 <p class="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">

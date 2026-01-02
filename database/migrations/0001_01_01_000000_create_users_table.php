@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('major', 64)->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('instagram_url')->nullable();
+            $table->string('github_url')->nullable();
             $table->string('email', 64)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

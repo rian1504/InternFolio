@@ -77,6 +77,14 @@ class InternInfolist
                     ->copyable()
                     ->copyMessage('Berhasil copy!')
                     ->copyMessageDuration(1500),
+                TextEntry::make('github_url')
+                    ->label('Link GitHub')
+                    ->placeholder('-')
+                    ->icon(Heroicon::GlobeAlt)
+                    ->iconColor('info')
+                    ->copyable()
+                    ->copyMessage('Berhasil copy!')
+                    ->copyMessageDuration(1500),
                 TextEntry::make('created_at')
                     ->label('Dibuat pada')
                     ->isoDateTime()

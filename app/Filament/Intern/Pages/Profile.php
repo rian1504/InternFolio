@@ -47,13 +47,16 @@ class Profile extends BaseEditProfile
                                     ->label('Jurusan')
                                     ->maxLength(255),
                             ]),
-                        Grid::make(2)
+                        Grid::make(3)
                             ->schema([
                                 TextInput::make('linkedin_url')
                                     ->label('LinkedIn')
                                     ->maxLength(255),
                                 TextInput::make('instagram_url')
                                     ->label('Instagram')
+                                    ->maxLength(255),
+                                TextInput::make('github_url')
+                                    ->label('GitHub')
                                     ->maxLength(255),
                             ]),
                     ]),
@@ -133,6 +136,7 @@ class Profile extends BaseEditProfile
             'major' => $user->major,
             'linkedin_url' => $user->linkedin_url,
             'instagram_url' => $user->instagram_url,
+            'github_url' => $user->github_url,
         ];
     }
 

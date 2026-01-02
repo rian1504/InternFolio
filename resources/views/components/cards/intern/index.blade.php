@@ -7,6 +7,7 @@
     'major',
     'instagram_url' => null,
     'linkedin_url' => null,
+    'github_url' => null,
     'rating_range' => null,
     'user_image' => null,
     'url' => '#',
