@@ -5,9 +5,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\ShortLinkController;
+use App\Http\Controllers\ExportCVController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// Export CV route (requires authentication)
+Route::get('/export-cv', [ExportCVController::class, 'export'])
+    ->middleware('auth')
+    ->name('export.cv');
 
 // Shortlink redirect route
 Route::get('/s/{code}', [ShortLinkController::class, 'redirect'])->name('shortlink.redirect');

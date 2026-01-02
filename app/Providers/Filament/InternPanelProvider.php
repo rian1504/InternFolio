@@ -88,5 +88,10 @@ class InternPanelProvider extends PanelProvider
             PanelsRenderHook::AUTH_LOGIN_FORM_BEFORE,
             fn() => view('filament.intern.pages.auth.login-back-home')
         );
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::USER_MENU_BEFORE,
+            fn() => view('filament.intern.components.navbar-export-cv')
+        );
     }
 }
