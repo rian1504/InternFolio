@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexRequest;
-use App\Http\Requests\MasterDepartmentRequest;
 use App\Models\User;
 use App\Models\ShortLink;
 use App\Services\InternService;
@@ -11,23 +10,26 @@ use App\Services\MasterService;
 
 class InternController extends Controller
 {
-    public function index(IndexRequest $request, InternService $service, MasterDepartmentRequest $masterRequest, MasterService $masterService)
+    public function __construct(
+        protected InternService $internService,
+        protected MasterService $masterService
+    ) {
+    }
+
+    public function index(IndexRequest $request)
     {
         $validated = $request->validated();
-        $interns = $service->index($validated);
-        $stats = $service->stats();
-
-        // Load all departments for dropdown (ignore search parameter)
-        $departments = $masterService->list_master_department([]);
+        $interns = $this->internService->index($validated);
+        $stats = $this->internService->stats();
+        $departments = $this->masterService->list_master_department([]);
 
         return view('interns.index', compact('interns', 'departments', 'stats'));
     }
 
-    public function show(InternService $service, User $user)
+    public function show(User $user)
     {
-        $intern = $service->show($user);
+        $intern = $this->internService->show($user);
 
-        // Generate or get existing shortlink
         $shortLink = ShortLink::createForModel(
             $user,
             route('intern.show', $user->user_uuid)

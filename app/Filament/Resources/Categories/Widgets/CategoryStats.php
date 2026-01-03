@@ -26,8 +26,8 @@ class CategoryStats extends StatsOverviewWidget
             ->orderByDesc('projects_count')
             ->first();
 
-        $popularCategory = $mostPopularCategory->category_name;
-        $totalDataPopuler = $mostPopularCategory->projects_count;
+        $popularCategory = $mostPopularCategory?->category_name;
+        $totalDataPopuler = $mostPopularCategory?->projects_count;
 
         return [
             Stat::make('Total Data Bulan Ini', $currentMonthData)

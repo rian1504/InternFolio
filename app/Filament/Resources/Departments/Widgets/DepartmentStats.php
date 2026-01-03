@@ -19,16 +19,16 @@ class DepartmentStats extends StatsOverviewWidget
             ->orderByDesc('users_count')
             ->first();
 
-        $popularDepartment = $mostPopularDepartment->department_name;
-        $totalDataPopular = $mostPopularDepartment->users_count;
+        $popularDepartment = $mostPopularDepartment?->department_name;
+        $totalDataPopular = $mostPopularDepartment?->users_count;
 
         $mostProjectDepartment = Department::query()
             ->withCount('projects')
             ->orderByDesc('projects_count')
             ->first();
 
-        $projectDepartment = $mostProjectDepartment->department_name;
-        $totalDataProject = $mostProjectDepartment->projects_count;
+        $projectDepartment = $mostProjectDepartment?->department_name;
+        $totalDataProject = $mostProjectDepartment?->projects_count;
 
         return [
             Stat::make('Alumni Magang', $popularDepartment . ' - ' . $totalDataPopular . ' Alumni Magang')

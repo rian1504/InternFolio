@@ -5,32 +5,34 @@ namespace App\Http\Controllers;
 use App\Services\MasterService;
 use App\Services\ProjectService;
 use App\Http\Requests\IndexRequest;
-use App\Http\Requests\MasterDepartmentRequest;
 use App\Models\Project;
 use App\Models\ShortLink;
 
 class ProjectController extends Controller
 {
-    public function index(IndexRequest $request, ProjectService $service, MasterDepartmentRequest $masterDepartmentRequest, MasterService $masterService)
+    public function __construct(
+        protected ProjectService $projectService,
+        protected MasterService $masterService
+    ) {
+    }
+
+    public function index(IndexRequest $request)
     {
         $validated = $request->validated();
-        $projects = $service->index($validated);
-        $stats = $service->stats();
-
-        // Load all departments and categories for dropdown (ignore search parameter)
-        $departments = $masterService->list_master_department([]);
-        $categories = $masterService->list_master_category([
+        $projects = $this->projectService->index($validated);
+        $stats = $this->projectService->stats();
+        $departments = $this->masterService->list_master_department([]);
+        $categories = $this->masterService->list_master_category([
             'type' => 'Project',
         ]);
 
         return view('projects.index', compact('projects', 'departments', 'categories', 'stats'));
     }
 
-    public function show(ProjectService $service, Project $project)
+    public function show(Project $project)
     {
-        $projectData = $service->show($project);
+        $projectData = $this->projectService->show($project);
 
-        // Generate or get existing shortlink
         $shortLink = ShortLink::createForModel(
             $project,
             route('project.show', $project->project_uuid)

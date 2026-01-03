@@ -25,6 +25,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Awcodes\LightSwitch\Enums\Alignment;
+use Filament\Facades\Filament as FilamentFacade;
 
 class InternPanelProvider extends PanelProvider
 {
@@ -91,7 +92,17 @@ class InternPanelProvider extends PanelProvider
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,
-            fn() => view('filament.intern.components.navbar-export-cv')
+            function () {
+                $user = auth()->user();
+                $currentPanel = FilamentFacade::getCurrentPanel()?->getId();
+
+                // Pastikan user login, berada di panel 'intern', dan is_admin adalah 0
+                if ($user && $currentPanel === 'intern' && $user->is_admin == 0) {
+                    return view('filament.intern.components.navbar-export-cv');
+                }
+
+                return '';
+            }
         );
     }
 }

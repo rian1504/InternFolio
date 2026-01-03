@@ -20,8 +20,8 @@ class InternStats extends StatsOverviewWidget
             ->orderByDesc('projects_count')
             ->first();
 
-        $projectIntern = $mostProjectIntern->user_name;
-        $totalDataProject = $mostProjectIntern->projects_count;
+        $projectIntern = $mostProjectIntern?->user_name;
+        $totalDataProject = $mostProjectIntern?->projects_count;
 
         $mostSuggestionIntern = user::query()
             ->where('is_admin', 0)
@@ -29,8 +29,8 @@ class InternStats extends StatsOverviewWidget
             ->orderByDesc('suggestions_count')
             ->first();
 
-        $suggestionIntern = $mostSuggestionIntern->user_name;
-        $totalDataSuggestion = $mostSuggestionIntern->suggestions_count;
+        $suggestionIntern = $mostSuggestionIntern?->user_name;
+        $totalDataSuggestion = $mostSuggestionIntern?->suggestions_count;
 
         return [
             Stat::make('Saran', $suggestionIntern . ' - ' . $totalDataSuggestion . ' Saran')

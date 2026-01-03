@@ -5,33 +5,34 @@ namespace App\Http\Controllers;
 use App\Services\MasterService;
 use App\Http\Requests\IndexRequest;
 use App\Services\SuggestionService;
-// use App\Http\Requests\MasterCategoryRequest;
-use App\Http\Requests\MasterDepartmentRequest;
 use App\Models\Suggestion;
 use App\Models\ShortLink;
 
 class SuggestionController extends Controller
 {
-    public function index(IndexRequest $request, SuggestionService $service, MasterDepartmentRequest $masterRequest, MasterService $masterService)
+    public function __construct(
+        protected SuggestionService $suggestionService,
+        protected MasterService $masterService
+    ) {
+    }
+
+    public function index(IndexRequest $request)
     {
         $validated = $request->validated();
-        $suggestions = $service->index($validated);
-        $stats = $service->stats();
-
-        // Load all departments and categories for dropdown (ignore search parameter)
-        $departments = $masterService->list_master_department([]);
-        $categories = $masterService->list_master_category([
+        $suggestions = $this->suggestionService->index($validated);
+        $stats = $this->suggestionService->stats();
+        $departments = $this->masterService->list_master_department([]);
+        $categories = $this->masterService->list_master_category([
             'type' => 'Suggestion',
         ]);
 
         return view('suggestions.index', compact('suggestions', 'departments', 'categories', 'stats'));
     }
 
-    public function show(SuggestionService $service, Suggestion $suggestion)
+    public function show(Suggestion $suggestion)
     {
-        $suggestionData = $service->show($suggestion);
+        $suggestionData = $this->suggestionService->show($suggestion);
 
-        // Generate or get existing shortlink
         $shortLink = ShortLink::createForModel(
             $suggestion,
             route('suggestion.show', $suggestion->suggestion_uuid)
