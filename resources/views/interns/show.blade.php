@@ -184,11 +184,13 @@
                                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Institusi</p>
                                 <p class="text-lg font-bold text-gray-900 dark:text-white">{{ $intern['school'] }}</p>
                             </div>
-                            <div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Program Studi</p>
-                                <p class="text-lg font-semibold text-blue-700 dark:text-blue-400">
-                                    {{ $intern['major'] }}</p>
-                            </div>
+                            @if (!empty($intern['major']))
+                                <div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Program Studi</p>
+                                    <p class="text-lg font-semibold text-blue-700 dark:text-blue-400">
+                                        {{ $intern['major'] }}</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
