@@ -34,7 +34,7 @@
 
                 <p class="text-lg md:text-xl text-slate-200 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                     Jelajahi profil lengkap alumni anak magang dari berbagai departemen dan jurusan.
-                    Lihat pengalaman, project, dan tips mereka.
+                    Lihat pengalaman, proyek, dan tips mereka.
                 </p>
 
                 <div class="flex flex-wrap gap-4 justify-center lg:justify-start">

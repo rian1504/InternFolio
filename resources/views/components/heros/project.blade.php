@@ -36,7 +36,7 @@
 
             <p class="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-3xl mx-auto">
                 Jelajahi berbagai proyek kreatif dan inovatif yang telah dikembangkan oleh alumni anak magang.
-                Dari web development hingga data science, lihat apa yang mereka ciptakan.
+                Dari web development hingga UI/UX, lihat apa yang mereka ciptakan.
             </p>
 
             {{-- Stats Row --}}
