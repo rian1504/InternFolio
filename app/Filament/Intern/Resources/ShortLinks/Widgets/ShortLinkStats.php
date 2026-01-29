@@ -17,21 +17,21 @@ class ShortLinkStats extends StatsOverviewWidget
         $totalShortLinks = ShortLink::where('user_id', $userId)->count();
 
         // Total clicks
-        $totalClicks = ShortLink::where('user_id', $userId)->sum('clicks');
+        $totalClicks = ShortLink::where('user_id', $userId)->sum('shortlink_clicks');
 
         // Most clicked shortlink
         $mostClicked = ShortLink::where('user_id', $userId)
-            ->orderBy('clicks', 'desc')
+            ->orderBy('shortlink_clicks', 'desc')
             ->first();
 
-        $mostClickedCount = $mostClicked ? $mostClicked->clicks : 0;
+        $mostClickedCount = $mostClicked ? $mostClicked->shortlink_clicks : 0;
 
         // Average clicks per shortlink
         $averageClicks = $totalShortLinks > 0 ? round($totalClicks / $totalShortLinks, 1) : 0;
 
         return [
             Stat::make('Terpopuler', $mostClickedCount . ' klik')
-                ->description($mostClicked ? 'Link: ' . $mostClicked->code : 'Belum ada data')
+                ->description($mostClicked ? 'Link: ' . $mostClicked->shortlink_code : 'Belum ada data')
                 ->descriptionIcon('heroicon-o-fire')
                 ->color('primary'),
 

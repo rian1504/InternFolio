@@ -8,17 +8,19 @@ use Illuminate\Support\Str;
 
 class ShortLink extends Model
 {
+    protected $primaryKey = 'shortlink_id';
+
     protected $fillable = [
-        'code',
+        'shortlink_code',
         'original_url',
         'linkable_type',
         'linkable_id',
         'user_id',
-        'clicks',
+        'shortlink_clicks',
     ];
 
     protected $casts = [
-        'clicks' => 'integer',
+        'shortlink_clicks' => 'integer',
     ];
 
     /**
@@ -29,7 +31,7 @@ class ShortLink extends Model
     {
         return $this->morphTo();
     }
-    
+
     /**
      * Load linkable relationship with proper UUID matching
      */
@@ -37,11 +39,11 @@ class ShortLink extends Model
     {
         $type = $this->linkable_type;
         $id = $this->linkable_id;
-        
+
         if (!$type || !$id) {
             return null;
         }
-        
+
         // Load the correct model by UUID
         $model = null;
         if ($type === 'App\Models\User') {
@@ -51,7 +53,7 @@ class ShortLink extends Model
         } elseif ($type === 'App\Models\Suggestion') {
             $model = Suggestion::where('suggestion_uuid', $id)->first();
         }
-        
+
         return $model;
     }
 
@@ -70,7 +72,7 @@ class ShortLink extends Model
     {
         do {
             $code = Str::random(6);
-        } while (self::where('code', $code)->exists());
+        } while (self::where('shortlink_code', $code)->exists());
 
         return $code;
     }
@@ -80,7 +82,7 @@ class ShortLink extends Model
      */
     public function getShortUrlAttribute(): string
     {
-        return url('/s/' . $this->code);
+        return url('/s/' . $this->shortlink_code);
     }
 
     /**
@@ -88,7 +90,7 @@ class ShortLink extends Model
      */
     public function incrementClicks(): void
     {
-        $this->increment('clicks');
+        $this->increment('shortlink_clicks');
     }
 
     /**
@@ -115,7 +117,7 @@ class ShortLink extends Model
 
         // Create new shortlink
         return self::create([
-            'code' => self::generateUniqueCode(),
+            'shortlink_code' => self::generateUniqueCode(),
             'original_url' => $url,
             'linkable_type' => get_class($model),
             'linkable_id' => $model->id ?? $model->user_uuid ?? $model->project_uuid ?? $model->suggestion_uuid,

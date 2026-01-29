@@ -12,11 +12,11 @@ class ShortLinkController extends Controller
      */
     public function redirect(string $code)
     {
-        $shortLink = ShortLink::where('code', $code)->firstOrFail();
-        
+        $shortLink = ShortLink::where('shortlink_code', $code)->firstOrFail();
+
         // Increment click counter
         $shortLink->incrementClicks();
-        
+
         // Redirect to original URL
         return redirect($shortLink->original_url);
     }

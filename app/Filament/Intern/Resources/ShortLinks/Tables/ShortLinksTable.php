@@ -15,7 +15,7 @@ class ShortLinksTable
             ->columns([
                 TextColumn::make('No')
                     ->rowIndex(),
-                TextColumn::make('code')
+                TextColumn::make('shortlink_code')
                     ->label('Kode Short Link')
                     ->searchable()
                     ->copyable()
@@ -44,13 +44,13 @@ class ShortLinksTable
                     ->getStateUsing(function (ShortLink $record) {
                         // Gunakan method helper untuk load by UUID
                         $linkable = $record->loadLinkableByUuid();
-                        
+
                         if (!$linkable) {
                             return 'Konten tidak ditemukan';
                         }
 
                         $type = class_basename($record->linkable_type);
-                        
+
                         return match ($type) {
                             'User' => $linkable->user_name ?? 'N/A',
                             'Project' => $linkable->project_title ?? 'N/A',
@@ -80,20 +80,20 @@ class ShortLinksTable
                     ->label('Terakhir diklik')
                     ->dateTime('d M Y H:i')
                     ->toggleable(),
-                TextColumn::make('clicks')
-                        ->label('Total Klik')
-                        ->numeric()
-                        ->sortable()
-                        ->badge()
-                        ->color(fn(int $state): string => match (true) {
-                            $state >= 100 => 'success',
-                            $state >= 50 => 'warning',
-                            $state >= 10 => 'info',
-                            default => 'primary',
-                        })
-                        ->icon('heroicon-o-cursor-arrow-ripple'),
+                TextColumn::make('shortlink_clicks')
+                    ->label('Total Klik')
+                    ->numeric()
+                    ->sortable()
+                    ->badge()
+                    ->color(fn(int $state): string => match (true) {
+                        $state >= 100 => 'success',
+                        $state >= 50 => 'warning',
+                        $state >= 10 => 'info',
+                        default => 'primary',
+                    })
+                    ->icon('heroicon-o-cursor-arrow-ripple'),
             ])
-            ->defaultSort('clicks', direction: 'desc')
+            ->defaultSort('shortlink_clicks', direction: 'desc')
             ->filters([
                 \Filament\Tables\Filters\SelectFilter::make('linkable_type')
                     ->label('Tipe Konten')

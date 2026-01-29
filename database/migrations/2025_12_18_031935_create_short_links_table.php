@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('short_links', function (Blueprint $table) {
-            $table->id();
-            $table->string('code', 8)->unique()->index();
+            $table->id('shortlink_id');
+            $table->string('shortlink_code', 8)->unique()->index();
             $table->text('original_url');
             $table->uuidMorphs('linkable'); // Creates linkable_type and linkable_id (UUID)
             $table->unsignedBigInteger('user_id')->nullable(); // Owner of the content
-            $table->unsignedBigInteger('clicks')->default(0);
+            $table->unsignedBigInteger('shortlink_clicks')->default(0);
             $table->timestamps();
 
             // Foreign key
