@@ -7,7 +7,7 @@
         {{-- Logo & Brand --}}
         <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3 group">
             <img src="{{ asset('image/logo.png') }}" alt="InternFolio Logo"
-                class="h-10 w-auto transform group-hover:scale-110 transition-transform duration-300">
+                class="h-16 w-auto transform group-hover:scale-110 transition-transform duration-300">
             <span class="hidden md:block font-bold text-xl"
                 :class="scrolled ? 'text-blue-600 dark:text-white' : 'text-white'">
                 InternFolio

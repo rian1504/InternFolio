@@ -14,7 +14,7 @@
             <div class="space-y-4">
                 <a href="/" class="flex items-center gap-3 group">
                     <img src="{{ asset('image/logo.png') }}" alt="InternFolio Logo"
-                        class="h-12 w-auto transform group-hover:scale-110 transition-transform duration-300">
+                        class="h-16 w-auto transform group-hover:scale-110 transition-transform duration-300">
                     <span class="font-bold text-2xl">InternFolio</span>
                 </a>
                 <p class="text-blue-100 leading-relaxed text-sm">

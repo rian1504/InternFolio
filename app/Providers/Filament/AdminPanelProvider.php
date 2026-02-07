@@ -44,7 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->font('Poppins', provider: GoogleFontProvider::class)
             ->brandName('InternFolio')
             ->brandLogo(asset('image/logo.png'))
-            ->brandLogoHeight('3rem')
+            ->brandLogoHeight('7rem')
             ->favicon(asset('image/logo.png'))
             ->maxContentWidth(Width::Full)
             ->simplePageMaxContentWidth(Width::Small)
