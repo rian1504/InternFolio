@@ -17,7 +17,7 @@
         {{-- Header: Category & Time --}}
         <div class="flex items-start justify-between mb-4 gap-3">
             @if ($category_name)
-                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm"
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm whitespace-nowrap"
                     style="background-color: #{{ substr($bg_color, -6) }}; color: #{{ substr($txt_color, -6) }};">
                     {{-- Category Icon based on name --}}
                     @if (str_contains(strtolower($category_name), 'tips'))
@@ -31,7 +31,7 @@
                     @else
                         ✨
                     @endif
-                    {{ $category_name }}
+                    {{ html_entity_decode($category_name) }}
                 </span>
             @endif
 

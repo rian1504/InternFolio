@@ -16,9 +16,9 @@
         {{-- Header: Category & Time --}}
         <div class="flex items-center justify-between mb-3">
             @if ($category_name)
-                <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-lg"
+                <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap"
                     style="background-color: #{{ substr($bg_color, -6) }}; color: #{{ substr($txt_color, -6) }};">
-                    {{ $category_name }}
+                    {{ html_entity_decode($category_name) }}
                 </span>
             @endif
 

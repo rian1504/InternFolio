@@ -43,16 +43,17 @@ class CreateRating extends Page implements HasForms
     {
         return $schema
             ->components([
-                Section::make('Rating Internship')
+                Section::make('Rating Pengalaman Magang')
                     ->description('Mohon berikan penilaian terhadap pengalaman magang Anda')
                     ->schema([
                         ComponentsRating::make('rating_range')
+                            ->label('Rating Magang')
                             ->default(5)
                             ->color('warning')
                             ->size('xl')
                             ->required(),
                         Textarea::make('rating_description')
-                            ->label('Feedback')
+                            ->label('Feedback Magang')
                             ->autosize()
                             ->trim()
                             ->placeholder('Berikan feedback mengenai pengalaman magang Anda...')
