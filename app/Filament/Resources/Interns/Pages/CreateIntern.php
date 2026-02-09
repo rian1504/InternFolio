@@ -15,7 +15,7 @@ class CreateIntern extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         // Generate Bagde
-        $userCount = User::where('is_admin', 0)->count();
+        $userCount = User::where('is_admin', 0)->withTrashed()->count();
         $nextNumber = $userCount + 1;
         $paddingLength = 3;
         $paddedNumber = Str::padLeft($nextNumber, $paddingLength, '0');
@@ -35,11 +35,11 @@ class CreateIntern extends CreateRecord
         $email = $emailLocalPart . '@gmail.com';
 
         // Pengecekan Duplikat Email
-        if (User::where('email', $email)->exists()) {
+        if (User::where('email', $email)->withTrashed()->exists()) {
             $i = 1;
             $uniqueEmail = $email;
 
-            while (User::where('email', $uniqueEmail)->exists()) {
+            while (User::where('email', $uniqueEmail)->withTrashed()->exists()) {
                 $uniqueEmail = $emailLocalPart . $i . '@gmail.com';
                 $i++;
             }
