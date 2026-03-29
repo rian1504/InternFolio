@@ -1,4 +1,7 @@
-<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
+<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900"
+    title="Alumni Anak Magang - InternFolio"
+    ogTitle="Alumni Anak Magang | InternFolio"
+    ogDescription="Temukan daftar alumni anak magang, pengalaman, dan portofolio mereka di InternFolio.">
 
     {{-- Enhanced HERO --}}
     <x-heros.intern :totalInterns="$interns->total()" :totalDepartments="$stats['totalDepartments']" :averageRating="$stats['averageRating']" />

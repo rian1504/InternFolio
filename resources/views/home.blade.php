@@ -1,4 +1,7 @@
-<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
+<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900"
+    title="InternFolio - Platform Portofolio Alumni Anak Magang"
+    ogTitle="InternFolio - Platform Portofolio Alumni Anak Magang"
+    ogDescription="Platform portofolio dan pengalaman alumni anak magang. Temukan proyek, tips, dan insight dari para alumni terbaik.">
 
     {{-- Enhanced Hero with Statistics --}}
     <x-heros.home :totalInterns="$totalInterns ?? 0" :totalProjects="$totalProjects ?? 0" :totalSuggestions="$totalSuggestions ?? 0" />

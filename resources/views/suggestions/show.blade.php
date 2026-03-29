@@ -1,5 +1,10 @@
 <x-layouts.app
-    bodyClass="bg-gradient-to-br from-gray-50 via-cyan-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    bodyClass="bg-gradient-to-br from-gray-50 via-cyan-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+    title="{{ $suggestion['suggestion_title'] }} - InternFolio"
+    ogTitle="{{ $suggestion['suggestion_title'] }} | Tips & Saran InternFolio"
+    ogDescription="{{ Str::limit(strip_tags($suggestion['suggestion_description']), 200) }}"
+    :ogImage="$suggestion['user']['user_image'] ? asset('storage/' . $suggestion['user']['user_image']) : null"
+    ogType="article">
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         {{-- Breadcrumb & Share --}}

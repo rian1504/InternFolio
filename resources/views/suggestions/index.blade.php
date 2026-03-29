@@ -1,4 +1,7 @@
-<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
+<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900"
+    title="Tips & Saran - InternFolio"
+    ogTitle="Tips & Saran | InternFolio"
+    ogDescription="Baca tips, saran, dan insight berharga dari para alumni anak magang di InternFolio.">
 
     {{-- Enhanced HERO --}}
     <x-heros.suggestion :totalSuggestions="$suggestions->total()" :totalCategories="$stats['totalCategories']" :totalContributors="$stats['totalContributors']" />

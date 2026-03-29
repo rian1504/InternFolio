@@ -1,5 +1,10 @@
 <x-layouts.app
-    bodyClass="bg-gradient-to-br from-gray-50 via-indigo-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    bodyClass="bg-gradient-to-br from-gray-50 via-indigo-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+    title="{{ $project['project_title'] }} - InternFolio"
+    ogTitle="{{ $project['project_title'] }} | Proyek InternFolio"
+    ogDescription="{{ Str::limit($project['project_description'], 200) }}"
+    :ogImage="!empty($project['photos']) ? asset('storage/' . $project['photos'][0]['photo_url']) : null"
+    ogType="article">
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         {{-- Breadcrumb & Share --}}

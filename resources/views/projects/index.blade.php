@@ -1,4 +1,7 @@
-<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900">
+<x-layouts.app bodyClass="bg-gray-50 dark:bg-gray-900"
+    title="Proyek Unggulan - InternFolio"
+    ogTitle="Proyek Unggulan | InternFolio"
+    ogDescription="Jelajahi karya dan proyek terbaik dari para alumni anak magang di InternFolio.">
 
     {{-- Enhanced HERO --}}
     <x-heros.project :totalProjects="$projects->total()" :totalCategories="$stats['totalCategories']" :totalTechnologies="$stats['totalTechnologies']" />

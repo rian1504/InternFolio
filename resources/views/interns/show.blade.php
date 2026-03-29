@@ -1,5 +1,10 @@
 <x-layouts.app
-    bodyClass="bg-gradient-to-br from-gray-50 via-blue-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    bodyClass="bg-gradient-to-br from-gray-50 via-blue-50/20 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+    title="{{ $intern['user_name'] }} - InternFolio"
+    ogTitle="{{ $intern['user_name'] }} | Alumni Anak Magang"
+    ogDescription="{{ $intern['position'] }} di {{ $intern['school'] }}. Lihat portofolio dan pengalaman magang {{ $intern['user_name'] }} di InternFolio."
+    :ogImage="$intern['user_image'] ? asset('storage/' . $intern['user_image']) : null"
+    ogType="profile">
     <div class="max-w-7xl mx-auto px-6 py-8">
 
         {{-- Breadcrumb & Share --}}
