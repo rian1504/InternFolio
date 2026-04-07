@@ -18,5 +18,4 @@ RUN php artisan config:cache
 
 RUN php artisan storage:link || true
 
-CMD php artisan migrate --force || true && \
-    php -S 0.0.0.0:$PORT -t public
+CMD php -S 0.0.0.0:$PORT -t public
