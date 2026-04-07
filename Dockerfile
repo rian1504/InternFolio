@@ -14,8 +14,7 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN chmod -R 775 storage bootstrap/cache
 
 RUN php artisan config:clear
-RUN php artisan config:cache
 
 RUN php artisan storage:link || true
 
-CMD php -S 0.0.0.0:$PORT -t public
+CMD php artisan config:cache && php artisan migrate --force && php -S 0.0.0.0:$PORT -t public
