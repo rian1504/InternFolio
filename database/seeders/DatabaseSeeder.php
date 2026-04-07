@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+        User::create([
             'user_name' => env('NAME', 'Admin'),
             'user_badge' => env('BADGE', '00000'),
             'join_date' => '1000-01-01',
