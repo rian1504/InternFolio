@@ -45,6 +45,9 @@
     <meta name="twitter:description" content="{{ $metaDescription }}">
     <meta name="twitter:image" content="{{ $metaImage }}">
 
+    {{-- Favicon --}}
+    <link rel="icon" type="image/png" href="{{ asset('image/logo.png') }}">
+
     @vite('resources/css/app.css')
     <style>
         html {
