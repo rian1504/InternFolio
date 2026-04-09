@@ -25,6 +25,7 @@ class CategoryForm
                     ->label('Nama Kategori')
                     ->required()
                     ->minLength(2)
+                    ->maxLength(32)
                     ->validationMessages([
                         'required' => ':attribute wajib diisi!',
                     ]),

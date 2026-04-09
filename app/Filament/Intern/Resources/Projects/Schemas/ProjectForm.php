@@ -34,7 +34,8 @@ class ProjectForm
                     ]),
                 TextInput::make('project_title')
                     ->label('Judul Proyek')
-                    ->required(),
+                    ->required()
+                    ->maxLength(32),
                 Textarea::make('project_description')
                     ->label('Deskripsi Proyek')
                     ->required()

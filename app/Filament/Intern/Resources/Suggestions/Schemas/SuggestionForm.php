@@ -31,7 +31,8 @@ class SuggestionForm
                     ]),
                 TextInput::make('suggestion_title')
                     ->label('Judul')
-                    ->required(),
+                    ->required()
+                    ->maxLength(32),
                 RichEditor::make('suggestion_description')
                     ->label('Deskripsi')
                     ->required()

@@ -42,10 +42,10 @@ class Profile extends BaseEditProfile
                             ->schema([
                                 TextInput::make('position')
                                     ->label('Posisi')
-                                    ->maxLength(255),
+                                    ->maxLength(64),
                                 TextInput::make('major')
                                     ->label('Jurusan')
-                                    ->maxLength(255),
+                                    ->maxLength(64),
                             ]),
                         Grid::make(3)
                             ->schema([

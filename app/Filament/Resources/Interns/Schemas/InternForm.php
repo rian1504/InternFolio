@@ -52,10 +52,12 @@ class InternForm
                     }),
                 TextInput::make('user_name')
                     ->label('Nama Alumni Magang')
-                    ->required(),
+                    ->required()
+                    ->maxLength(64),
                 TextInput::make('school')
                     ->label('Sekolah/Universitas')
-                    ->required(),
+                    ->required()
+                    ->maxLength(64),
                 DatePicker::make('join_date')
                     ->label('Tanggal Bergabung')
                     ->required()

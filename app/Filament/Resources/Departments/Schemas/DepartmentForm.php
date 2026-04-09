@@ -21,7 +21,8 @@ class DepartmentForm
                     ]),
                 TextInput::make('department_name')
                     ->label('Nama Departemen')
-                    ->required(),
+                    ->required()
+                    ->maxLength(32),
             ]);
     }
 }
