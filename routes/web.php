@@ -7,6 +7,7 @@ use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\ExportCVController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -31,4 +32,28 @@ Route::prefix('project')->group(function () {
 Route::prefix('suggestion')->group(function () {
     Route::get('', [SuggestionController::class, 'index'])->name('suggestion.index');
     Route::get('{suggestion}', [SuggestionController::class, 'show'])->name('suggestion.show');
+});
+
+// setup production
+Route::get('/setup/{key}', function ($key) {
+    if ($key !== env('SETUP_KEY')) {
+        abort(403);
+    }
+
+    $output = [];
+
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        $output[] = Artisan::output();
+
+        Artisan::call('db:seed', ['--force' => true]);
+        $output[] = Artisan::output();
+
+        Artisan::call('storage:link');
+        $output[] = Artisan::output();
+
+        return nl2br(implode("\n", $output));
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
 });
