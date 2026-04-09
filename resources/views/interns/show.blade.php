@@ -95,21 +95,27 @@
                         </div>
                         {{-- Rating Stars --}}
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="flex items-center gap-0.5">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <svg class="w-6 h-6 {{ $i <= $intern['rating']['rating_range'] ? 'text-amber-400' : 'text-gray-300 dark:text-gray-500' }}"
-                                        fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.46 1.287 3.97c.3.921-.755 1.688-1.54 1.118L10 13.348l-3.365 2.427c-.784.57-1.838-.197-1.539-1.118l1.286-3.97-3.385-2.46c-.783-.57-.38-1.81.588-1.81h4.178l1.286-3.97z" />
-                                    </svg>
-                                @endfor
-                            </div>
-                            <span class="text-sm font-bold text-amber-700 dark:text-amber-300">
-                                {{ $intern['rating']['rating_range'] }}/5
-                            </span>
+                            @if (!empty($intern['rating']['rating_range']))
+                                <div class="flex items-center gap-0.5">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <svg class="w-6 h-6 {{ $i <= $intern['rating']['rating_range'] ? 'text-amber-400' : 'text-gray-300 dark:text-gray-500' }}"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.46 1.287 3.97c.3.921-.755 1.688-1.54 1.118L10 13.348l-3.365 2.427c-.784.57-1.838-.197-1.539-1.118l1.286-3.97-3.385-2.46c-.783-.57-.38-1.81.588-1.81h4.178l1.286-3.97z" />
+                                        </svg>
+                                    @endfor
+                                </div>
+                                <span class="text-sm font-bold text-amber-700 dark:text-amber-300">
+                                    {{ $intern['rating']['rating_range'] }}/5
+                                </span>
+                            @else
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+                                    ⭐ Belum dinilai
+                                </span>
+                            @endif
                         </div>
                         {{-- Description --}}
-                        @if ($intern['rating']['rating_description'])
+                        @if (!empty($intern['rating']['rating_description']))
                             <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed italic">
                                 "{{ $intern['rating']['rating_description'] }}"
                             </p>
