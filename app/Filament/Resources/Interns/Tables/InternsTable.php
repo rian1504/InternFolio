@@ -66,9 +66,11 @@ class InternsTable
                     ->disk('public'),
                 TextColumn::make('join_date')
                     ->label('Tanggal Bergabung')
+                    ->sortable()
                     ->date('l, d F Y'),
                 TextColumn::make('end_date')
                     ->label('Tanggal Berakhir')
+                    ->sortable()
                     ->date('l, d F Y'),
                 TextColumn::make('created_at')
                     ->label('Dibuat pada')
