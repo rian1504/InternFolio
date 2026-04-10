@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\MasterService;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -27,6 +28,14 @@ class Department extends Model
 
         static::creating(function ($department) {
             $department->department_uuid = (string) Str::uuid();
+        });
+
+        static::saved(function () {
+            MasterService::clearCacheDepartment();
+        });
+
+        static::deleted(function () {
+            MasterService::clearCacheDepartment();
         });
     }
 

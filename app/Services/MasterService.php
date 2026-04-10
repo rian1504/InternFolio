@@ -16,7 +16,9 @@ class MasterService
         $search = $validated['search'] ?? null;
 
         // Key Redis
-        $cacheKey = 'master_department_search_' . ($search ? md5($search) : 'all');
+        $version = Cache::get('master_department_version', 1);
+
+        $cacheKey = 'master_department_v' . $version . '_search_' . ($search ? md5($search) : 'all');
         $expirationInMinutes = 60;
 
         $selectFields = [
@@ -38,7 +40,9 @@ class MasterService
         $type = $validated['type'];
 
         // Key Redis
-        $cacheKey = 'master_category_type_' . $type . '_search_' . ($search ? md5($search) : 'all');
+        $version = Cache::get('master_category_version', 1);
+
+        $cacheKey = 'master_category_v' . $version . '_type_' . $type . '_search_' . ($search ? md5($search) : 'all');
         $expirationInMinutes = 60;
 
         $selectFields = [
@@ -52,5 +56,25 @@ class MasterService
                 ->search($search)
                 ->get($selectFields);
         });
+    }
+
+    public static function clearCacheDepartment()
+    {
+        // Increment version to invalidate all department list caches
+        Cache::has('master_department_version')
+            ? Cache::increment('master_department_version')
+            : Cache::put('master_department_version', 2, 60 * 60 * 24 * 7);
+    }
+
+    public static function clearCacheCategory()
+    {
+        // Increment version to invalidate all category list caches
+        Cache::has('master_category_version')
+            ? Cache::increment('master_category_version')
+            : Cache::put('master_category_version', 2, 60 * 60 * 24 * 7);
+
+        // Also clear suggestion stats because it counts categories
+        Cache::forget('suggestion_stats');
+        Cache::forget('project_stats');
     }
 }

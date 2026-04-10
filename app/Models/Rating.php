@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\InternService;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,6 +32,20 @@ class Rating extends Model
 
         static::creating(function ($rating) {
             $rating->rating_uuid = (string) Str::uuid();
+        });
+
+        static::saved(function ($rating) {
+            $user = $rating->user;
+            if ($user && !$user->is_admin) {
+                InternService::clearCache($user->user_uuid);
+            }
+        });
+
+        static::deleted(function ($rating) {
+            $user = $rating->user;
+            if ($user && !$user->is_admin) {
+                InternService::clearCache($user->user_uuid);
+            }
         });
     }
 

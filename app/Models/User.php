@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use Filament\Panel;
+use App\Services\InternService;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
@@ -75,6 +76,18 @@ class User extends Authenticatable implements HasAvatar, FilamentUser
         static::forceDeleting(function ($record) {
             if ($record->user_image && Storage::disk('public')->exists($record->user_image)) {
                 Storage::disk('public')->delete($record->user_image);
+            }
+        });
+
+        static::saved(function ($user) {
+            if (!$user->is_admin) {
+                InternService::clearCache($user->user_uuid);
+            }
+        });
+
+        static::deleted(function ($user) {
+            if (!$user->is_admin) {
+                InternService::clearCache($user->user_uuid);
             }
         });
     }

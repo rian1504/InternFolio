@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\MasterService;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,6 +33,14 @@ class Category extends Model
 
         static::creating(function ($category) {
             $category->category_uuid = (string) Str::uuid();
+        });
+
+        static::saved(function () {
+            MasterService::clearCacheCategory();
+        });
+
+        static::deleted(function () {
+            MasterService::clearCacheCategory();
         });
     }
 

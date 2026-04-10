@@ -97,7 +97,9 @@ class InternService
             $departmentId = $department->department_id;
         }
 
-        $cacheKey = 'intern_index_' . md5(json_encode([
+        $version = Cache::get('intern_index_version', 1);
+
+        $cacheKey = 'intern_index_v' . $version . '_' . md5(json_encode([
             'department' => $departmentId,
             'search'     => $search,
             'sort'       => $sort ?? 'default',
@@ -192,5 +194,21 @@ class InternService
 
             return $user;
         });
+    }
+
+    public static function clearCache(?string $uuid = null)
+    {
+        Cache::forget('intern_dashboard');
+        Cache::forget('intern_count');
+        Cache::forget('intern_stats');
+
+        // Increment version to invalidate all index caches
+        Cache::has('intern_index_version')
+            ? Cache::increment('intern_index_version')
+            : Cache::put('intern_index_version', 2, 60 * 60 * 24);
+
+        if ($uuid) {
+            Cache::forget('intern_detail_' . $uuid);
+        }
     }
 }
