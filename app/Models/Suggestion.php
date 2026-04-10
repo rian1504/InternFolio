@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\SuggestionService;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,6 +32,14 @@ class Suggestion extends Model
 
         static::creating(function ($suggestion) {
             $suggestion->suggestion_uuid = (string) Str::uuid();
+        });
+
+        static::saved(function ($suggestion) {
+            SuggestionService::clearCache($suggestion->suggestion_uuid);
+        });
+
+        static::deleted(function ($suggestion) {
+            SuggestionService::clearCache($suggestion->suggestion_uuid);
         });
     }
 

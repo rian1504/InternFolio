@@ -109,7 +109,9 @@ class ProjectService
             $categoryId = $category->category_id;
         }
 
-        $cacheKey = 'project_index_' . md5(json_encode([
+        $version = Cache::get('project_index_version', 1);
+
+        $cacheKey = 'project_index_v' . $version . '_' . md5(json_encode([
             'department' => $departmentId,
             'category'   => $categoryId,
             'search'     => $search,
@@ -186,5 +188,21 @@ class ProjectService
 
             return $project;
         });
+    }
+
+    public static function clearCache(?string $uuid = null)
+    {
+        Cache::forget('project_dashboard');
+        Cache::forget('project_count');
+        Cache::forget('project_stats');
+
+        // Increment version to invalidate all index caches
+        Cache::has('project_index_version') 
+            ? Cache::increment('project_index_version') 
+            : Cache::put('project_index_version', 2, 60 * 60 * 24);
+
+        if ($uuid) {
+            Cache::forget('project_detail_' . $uuid);
+        }
     }
 }

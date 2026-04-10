@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ProjectService;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -46,6 +47,14 @@ class Project extends Model
 
             // Hapus relasi photo di database
             $project->photos()->delete();
+        });
+
+        static::saved(function ($project) {
+            ProjectService::clearCache($project->project_uuid);
+        });
+
+        static::deleted(function ($project) {
+            ProjectService::clearCache($project->project_uuid);
         });
     }
 

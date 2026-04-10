@@ -97,7 +97,9 @@ class SuggestionService
             $categoryId = $category->category_id;
         }
 
-        $cacheKey = 'suggestion_index_' . md5(json_encode([
+        $version = Cache::get('suggestion_index_version', 1);
+
+        $cacheKey = 'suggestion_index_v' . $version . '_' . md5(json_encode([
             'department' => $departmentId,
             'category'   => $categoryId,
             'search'     => $search,
@@ -184,5 +186,21 @@ class SuggestionService
 
             return $suggestion;
         });
+    }
+
+    public static function clearCache(?string $uuid = null)
+    {
+        Cache::forget('suggestion_dashboard');
+        Cache::forget('suggestion_count');
+        Cache::forget('suggestion_stats');
+
+        // Increment version to invalidate all index caches
+        Cache::has('suggestion_index_version') 
+            ? Cache::increment('suggestion_index_version') 
+            : Cache::put('suggestion_index_version', 2, 60 * 60 * 24);
+
+        if ($uuid) {
+            Cache::forget('suggestion_detail_' . $uuid);
+        }
     }
 }
