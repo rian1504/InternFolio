@@ -63,7 +63,7 @@
         <table class="item-row">
             <tr>
                 <td class="project-title">{{ $project->project_title }} ({{ $project->category->category_name ?? 'Uncategorized' }})</td>
-                <td>{{ $project->project_duration }} Bulan</td>
+                <td>{{ str_replace('.', ',', 0 + $project->project_duration) }} Bulan</td>
             </tr>
         </table>
         <div class="project-content">

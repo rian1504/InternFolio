@@ -35,7 +35,7 @@ Route::prefix('suggestion')->group(function () {
 });
 
 // setup production
-Route::get('/setup/{key}', function ($key) {
+Route::get('/setup/{key}/{action?}', function ($key, $action = null) {
     if ($key !== env('SETUP_KEY')) {
         abort(403);
     }
@@ -43,14 +43,26 @@ Route::get('/setup/{key}', function ($key) {
     $output = [];
 
     try {
-        Artisan::call('migrate', ['--force' => true]);
-        $output[] = Artisan::output();
+        if ($action === 'migrate') {
+            Artisan::call('migrate', ['--force' => true]);
+            $output[] = Artisan::output();
+        } elseif ($action === 'seed') {
+            Artisan::call('db:seed', ['--force' => true]);
+            $output[] = Artisan::output();
+        } elseif ($action === 'link') {
+            Artisan::call('storage:link');
+            $output[] = Artisan::output();
+        } else {
+            // Default: run all
+            Artisan::call('migrate', ['--force' => true]);
+            $output[] = Artisan::output();
 
-        Artisan::call('db:seed', ['--force' => true]);
-        $output[] = Artisan::output();
+            Artisan::call('db:seed', ['--force' => true]);
+            $output[] = Artisan::output();
 
-        Artisan::call('storage:link');
-        $output[] = Artisan::output();
+            Artisan::call('storage:link');
+            $output[] = Artisan::output();
+        }
 
         return nl2br(implode("\n", $output));
     } catch (\Exception $e) {

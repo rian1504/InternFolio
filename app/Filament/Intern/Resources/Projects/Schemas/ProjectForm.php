@@ -65,7 +65,8 @@ class ProjectForm
                     ->suffix('Bulan')
                     ->minValue(0)
                     ->maxValue(60)
-                    ->integer(),
+                    ->numeric()
+                    ->step(0.1),
                 FileUpload::make('photos')
                     ->label('Foto Proyek')
                     ->helperText('Anda bisa upload maksimal 5 gambar (lebih dari 5 akan ditolak otomatis)')

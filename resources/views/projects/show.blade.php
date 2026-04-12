@@ -73,7 +73,7 @@
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 <span class="text-sm font-bold text-indigo-700 dark:text-indigo-300">
-                                    {{ $project['project_duration'] }} Bulan
+                                    {{ str_replace('.', ',', 0 + $project['project_duration']) }} Bulan
                                 </span>
                             </div>
                         </div>
