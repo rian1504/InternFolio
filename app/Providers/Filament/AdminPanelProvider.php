@@ -10,6 +10,7 @@ use Filament\Support\Colors\Color;
 use Filament\Http\Middleware\Authenticate;
 use App\Filament\Widgets\InternGrowthStats;
 use App\Http\Middleware\RedirectIfNotAuthenticated;
+use App\Http\Middleware\RedirectIntern;
 use Filament\FontProviders\GoogleFontProvider;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -73,6 +74,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 // Authenticate::class,
                 RedirectIfNotAuthenticated::class,
+                RedirectIntern::class,
             ]);
     }
 }

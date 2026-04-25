@@ -11,6 +11,7 @@ use Filament\Widgets\AccountWidget;
 use App\Filament\Intern\Pages\Profile;
 use Filament\Widgets\FilamentInfoWidget;
 use App\Http\Middleware\CheckInternRating;
+use App\Http\Middleware\RedirectAdmin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Support\Facades\FilamentView;
 use Filament\FontProviders\GoogleFontProvider;
@@ -80,6 +81,7 @@ class InternPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                RedirectAdmin::class,
             ]);
     }
 
