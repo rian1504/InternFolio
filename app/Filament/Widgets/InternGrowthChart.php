@@ -18,7 +18,7 @@ class InternGrowthChart extends ChartWidget
 
     protected int | string | array $columnSpan = 'full';
 
-    protected ?string $maxHeight = '300px';
+    protected ?string $maxHeight = '270px';
 
     protected function getData(): array
     {
