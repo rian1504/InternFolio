@@ -109,6 +109,7 @@ class ProjectForm
                     })
                     ->validationMessages([
                         'required' => ':attribute wajib diisi!',
+                        'max' => ':attribute tidak boleh lebih dari 5 gambar!',
                     ]),
             ]);
     }
