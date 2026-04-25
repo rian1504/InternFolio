@@ -17,18 +17,12 @@ class CategoryForm
                     ->label('Tipe Kategori')
                     ->options(['Project' => 'Project', 'Suggestion' => 'Suggestion'])
                     ->native(false)
-                    ->required()
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->required(),
                 TextInput::make('category_name')
                     ->label('Nama Kategori')
                     ->required()
                     ->minLength(2)
-                    ->maxLength(32)
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->maxLength(32),
                 ColorPicker::make('bg_color')
                     ->label('Warna Latar Belakang')
                     ->default('#FFFFFF')

@@ -32,10 +32,7 @@ class InternForm
                     ->searchable(['department_name', 'department_code'])
                     ->loadingMessage('Loading departemen...')
                     ->noSearchResultsMessage('Tidak ada departemen yang sesuai!')
-                    ->searchPrompt('Cari berdasarkan kode atau nama departemen')
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->searchPrompt('Cari berdasarkan kode atau nama departemen'),
                 FileUpload::make('user_image')
                     ->label('Foto Alumni Magang')
                     ->image()
@@ -63,19 +60,13 @@ class InternForm
                     ->required()
                     ->displayFormat('d F Y')
                     ->native(false)
-                    ->suffixIcon(Heroicon::CalendarDateRange)
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->suffixIcon(Heroicon::CalendarDateRange),
                 DatePicker::make('end_date')
                     ->label('Tanggal Akhir')
                     ->required()
                     ->displayFormat('d F Y')
                     ->native(false)
-                    ->suffixIcon(Heroicon::CalendarDateRange)
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->suffixIcon(Heroicon::CalendarDateRange),
             ]);
     }
 }

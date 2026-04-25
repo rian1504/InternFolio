@@ -14,11 +14,7 @@ class DepartmentForm
                 TextInput::make('department_code')
                     ->label('Kode Departemen')
                     ->required()
-                    ->maxLength(8)
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                        'max.string' => ':attribute maksimal 8 karakter!',
-                    ]),
+                    ->maxLength(8),
                 TextInput::make('department_name')
                     ->label('Nama Departemen')
                     ->required()

@@ -70,11 +70,7 @@ class Profile extends BaseEditProfile
                             ->revealable()
                             ->dehydrated(false)
                             ->requiredWith(['new_password', 'new_password_confirmation'])
-                            ->rules(['current_password'])
-                            ->validationMessages([
-                                'current_password' => ':attribute tidak sesuai!',
-                                'required_with' => ':attribute wajib diisi jika password baru diisi.',
-                            ]),
+                            ->rules(['current_password']),
 
                         Grid::make(2)
                             ->schema([
@@ -86,12 +82,7 @@ class Profile extends BaseEditProfile
                                     ->minLength(8)
                                     ->same('new_password_confirmation')
                                     ->requiredWith(['current_password', 'new_password_confirmation'])
-                                    ->rules(['nullable', 'min:8'])
-                                    ->validationMessages([
-                                        'min' => 'Password minimal 8 karakter!',
-                                        'same' => 'Password harus sama!',
-                                        'required_with' => ':attribute wajib diisi jika password saat ini diisi.',
-                                    ]),
+                                    ->rules(['nullable', 'min:8']),
 
                                 TextInput::make('new_password_confirmation')
                                     ->label('Konfirmasi Password Baru')
@@ -99,11 +90,7 @@ class Profile extends BaseEditProfile
                                     ->revealable()
                                     ->dehydrated(false)
                                     ->requiredWith(['new_password', 'current_password'])
-                                    ->rules(['nullable', 'min:8'])
-                                    ->validationMessages([
-                                        'min' => 'Password minimal 8 karakter!',
-                                        'required_with' => ':attribute wajib diisi jika Password Baru diisi.',
-                                    ]),
+                                    ->rules(['nullable', 'min:8']),
                             ]),
                     ])
                     ->collapsible()
@@ -117,7 +104,7 @@ class Profile extends BaseEditProfile
                         ->color('primary'),
                     Action::make('back')
                         ->label('Kembali')
-                        ->url(url()->previous())
+                        ->url(\Filament\Facades\Filament::getPanel('intern')->getUrl())
                         ->color('gray')
                         ->icon('heroicon-o-arrow-left'),
                 ])->alignEnd()

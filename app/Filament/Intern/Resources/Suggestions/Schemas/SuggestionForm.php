@@ -25,10 +25,7 @@ class SuggestionForm
                     ->required()
                     ->options($category)
                     ->native(false)
-                    ->searchable()
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->searchable(),
                 TextInput::make('suggestion_title')
                     ->label('Judul')
                     ->required()
@@ -36,9 +33,6 @@ class SuggestionForm
                 RichEditor::make('suggestion_description')
                     ->label('Deskripsi')
                     ->required()
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ])
                     ->columnSpanFull()
                     ->toolbarButtons([
                         ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link', 'highlight', 'details'],

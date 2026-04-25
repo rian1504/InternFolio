@@ -28,10 +28,7 @@ class ProjectForm
                     ->required()
                     ->options($category)
                     ->native(false)
-                    ->searchable()
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                    ]),
+                    ->searchable(),
                 TextInput::make('project_title')
                     ->label('Judul Proyek')
                     ->required()
@@ -55,9 +52,6 @@ class ProjectForm
                         'Livewire',
                         'Javascript',
                         'Python',
-                    ])
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
                     ]),
                 TextInput::make('project_duration')
                     ->label('Lama Pengerjaan')
@@ -106,11 +100,7 @@ class ProjectForm
                                 Storage::disk('public')->delete($filePath);
                             }
                         }
-                    })
-                    ->validationMessages([
-                        'required' => ':attribute wajib diisi!',
-                        'max' => ':attribute tidak boleh lebih dari 5 gambar!',
-                    ]),
+                    }),
             ]);
     }
 }
