@@ -1,6 +1,6 @@
 <nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = window.scrollY > 10"
-    :class="scrolled ? 'bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg shadow-lg' : 'bg-blue-600 dark:bg-gray-900'"
-    class="w-full text-white sticky top-0 z-50 transition-all duration-300">
+    :class="scrolled ? 'bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg shadow-lg text-gray-800 dark:text-white' : 'bg-blue-600 dark:bg-gray-900 text-white'"
+    class="w-full sticky top-0 z-50 transition-all duration-300">
 
     <div class="container mx-auto flex justify-between items-center px-6 py-4">
 
@@ -19,7 +19,7 @@
             <li>
                 <a href="{{ route('dashboard.index') }}"
                     :class="scrolled ?
-                        '{{ request()->routeIs('dashboard.index') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                        '{{ request()->routeIs('dashboard.index') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                         '{{ request()->routeIs('dashboard.index') ? 'bg-white/20' : 'hover:bg-white/10' }}'"
                     class="px-4 py-2 rounded-lg transition-all duration-200 {{ request()->routeIs('dashboard.index') ? '' : '' }}">
                     🏠 Beranda
@@ -29,7 +29,7 @@
             <li>
                 <a href="{{ route('intern.index') }}"
                     :class="scrolled ?
-                        '{{ request()->routeIs('intern.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                        '{{ request()->routeIs('intern.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                         '{{ request()->routeIs('intern.*') ? 'bg-white/20' : 'hover:bg-white/10' }}'"
                     class="px-4 py-2 rounded-lg transition-all duration-200">
                     👥 Profil Alumni
@@ -39,7 +39,7 @@
             <li>
                 <a href="{{ route('project.index') }}"
                     :class="scrolled ?
-                        '{{ request()->routeIs('project.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                        '{{ request()->routeIs('project.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                         '{{ request()->routeIs('project.*') ? 'bg-white/20' : 'hover:bg-white/10' }}'"
                     class="px-4 py-2 rounded-lg transition-all duration-200">
                     💼 Proyek
@@ -49,7 +49,7 @@
             <li>
                 <a href="{{ route('suggestion.index') }}"
                     :class="scrolled ?
-                        '{{ request()->routeIs('suggestion.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                        '{{ request()->routeIs('suggestion.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                         '{{ request()->routeIs('suggestion.*') ? 'bg-white/20' : 'hover:bg-white/10' }}'"
                     class="px-4 py-2 rounded-lg transition-all duration-200">
                     💡 Tips & Saran
@@ -116,7 +116,7 @@
                 class="flex items-center gap-3 py-3 px-4 rounded-lg font-medium transition-all
                       {{ request()->routeIs('dashboard.index') ? 'bg-white/20 dark:bg-gray-700 shadow-lg' : 'hover:bg-white/10 dark:hover:bg-gray-700' }}"
                 :class="scrolled ?
-                    '{{ request()->routeIs('dashboard.index') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                    '{{ request()->routeIs('dashboard.index') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                     'text-white'">
                 <span class="text-xl">🏠</span>
                 Beranda
@@ -126,7 +126,7 @@
                 class="flex items-center gap-3 py-3 px-4 rounded-lg font-medium transition-all
                       {{ request()->routeIs('intern.*') ? 'bg-white/20 dark:bg-gray-700 shadow-lg' : 'hover:bg-white/10 dark:hover:bg-gray-700' }}"
                 :class="scrolled ?
-                    '{{ request()->routeIs('intern.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                    '{{ request()->routeIs('intern.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                     'text-white'">
                 <span class="text-xl">👥</span>
                 Profil Alumni
@@ -136,7 +136,7 @@
                 class="flex items-center gap-3 py-3 px-4 rounded-lg font-medium transition-all
                       {{ request()->routeIs('project.*') ? 'bg-white/20 dark:bg-gray-700 shadow-lg' : 'hover:bg-white/10 dark:hover:bg-gray-700' }}"
                 :class="scrolled ?
-                    '{{ request()->routeIs('project.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                    '{{ request()->routeIs('project.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                     'text-white'">
                 <span class="text-xl">💼</span>
                 Proyek
@@ -146,7 +146,7 @@
                 class="flex items-center gap-3 py-3 px-4 rounded-lg font-medium transition-all
                       {{ request()->routeIs('suggestion.*') ? 'bg-white/20 dark:bg-gray-700 shadow-lg' : 'hover:bg-white/10 dark:hover:bg-gray-700' }}"
                 :class="scrolled ?
-                    '{{ request()->routeIs('suggestion.*') ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
+                    '{{ request()->routeIs('suggestion.*') ? 'bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700' }}' :
                     'text-white'">
                 <span class="text-xl">💡</span>
                 Tips & Saran
