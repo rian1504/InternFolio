@@ -18,6 +18,8 @@ class InternGrowthChart extends ChartWidget
 
     protected int | string | array $columnSpan = 'full';
 
+    protected ?string $maxHeight = '300px';
+
     protected function getData(): array
     {
         // Gunakan Eloquent Query Builder untuk memfilter data
