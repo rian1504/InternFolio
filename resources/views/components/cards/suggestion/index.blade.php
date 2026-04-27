@@ -17,26 +17,28 @@
         {{-- Header: Category & Time --}}
         <div class="flex items-start justify-between mb-4 gap-3">
             @if ($category_name)
-                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm whitespace-nowrap"
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm min-w-0"
                     style="background-color: #{{ substr($bg_color, -6) }}; color: #{{ substr($txt_color, -6) }};">
                     {{-- Category Icon based on name --}}
-                    @if (str_contains(strtolower($category_name), 'tips'))
-                        💡
-                    @elseif (str_contains(strtolower($category_name), 'tech'))
-                        💻
-                    @elseif (str_contains(strtolower($category_name), 'career'))
-                        🎯
-                    @elseif (str_contains(strtolower($category_name), 'skill'))
-                        🚀
-                    @else
-                        ✨
-                    @endif
-                    {{ html_entity_decode($category_name) }}
+                    <span class="flex-shrink-0">
+                        @if (str_contains(strtolower($category_name), 'tips'))
+                            💡
+                        @elseif (str_contains(strtolower($category_name), 'tech'))
+                            💻
+                        @elseif (str_contains(strtolower($category_name), 'career'))
+                            🎯
+                        @elseif (str_contains(strtolower($category_name), 'skill'))
+                            🚀
+                        @else
+                            ✨
+                        @endif
+                    </span>
+                    <span class="truncate">{{ html_entity_decode($category_name) }}</span>
                 </span>
             @endif
 
             @if ($created_at)
-                <span class="text-xs text-gray-400 flex items-center gap-1 whitespace-nowrap">
+                <span class="text-xs text-gray-400 flex items-center gap-1 whitespace-nowrap flex-shrink-0">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

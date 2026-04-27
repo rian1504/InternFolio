@@ -14,16 +14,16 @@
         style="border-color: #{{ substr($bg_color, -6) }};">
 
         {{-- Header: Category & Time --}}
-        <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center justify-between mb-3 gap-3">
             @if ($category_name)
-                <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap"
+                <span class="inline-block text-xs font-bold px-3 py-1.5 rounded-lg min-w-0 max-w-[60%] truncate"
                     style="background-color: #{{ substr($bg_color, -6) }}; color: #{{ substr($txt_color, -6) }};">
                     {{ html_entity_decode($category_name) }}
                 </span>
             @endif
 
             @if ($created_at)
-                <span class="text-xs text-gray-400 flex items-center gap-1">
+                <span class="text-xs text-gray-400 flex items-center gap-1 flex-shrink-0 whitespace-nowrap">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
