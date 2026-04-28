@@ -1,3 +1,4 @@
+@if(auth()->user()?->rating()->exists())
 <a href="{{ route('export.cv') }}" target="_blank"
     style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 14px; font-weight: 500; border-radius: 8px; background-color: #22c55e; color: white; text-decoration: none; box-shadow: 0 1px 2px rgba(0,0,0,0.1); transition: background-color 0.2s;"
     onmouseover="this.style.backgroundColor='#16a34a'" onmouseout="this.style.backgroundColor='#22c55e'" title="Export CV">
@@ -8,3 +9,5 @@
     </svg>
     Export as CV
 </a>
+@endif
+
