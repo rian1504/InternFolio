@@ -119,8 +119,8 @@
                         </div>
                     @endif
                     <div>
-                        <p class="text-xs text-gray-500">oleh</p>
-                        <p class="text-sm font-semibold text-gray-700">{{ $user_name }}</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">oleh</p>
+                        <p class="text-sm font-semibold text-gray-700 dark:text-gray-200">{{ $user_name }}</p>
                     </div>
                 </div>
 

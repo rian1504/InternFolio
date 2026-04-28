@@ -21,7 +21,7 @@ class ProjectStats extends StatsOverviewWidget
         // Hitung average project
         $avgDurations = Project::where('user_id', $userId)->avg('project_duration');
 
-        $avgDurations = (int) $avgDurations;
+        $avgDurations = str_replace('.', ',', 0 + round((float) $avgDurations, 1));
 
         // Get data populer
         $mostPopularCategory = Category::query()

@@ -35,7 +35,7 @@
             </nav>
 
             {{-- Share Button --}}
-            <x-share-button :shortLink="$shortLink" :title="$project['project_title']" :description="$project['category']['category_name']" color="indigo" />
+            <x-share-button :shortLink="$shortLink" :title="$project['project_title']" :description="$project['category']['category_name']" color="purple" />
         </div>
 
         {{-- Back Button --}}
