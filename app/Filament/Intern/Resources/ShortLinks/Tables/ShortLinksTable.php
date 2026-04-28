@@ -61,14 +61,29 @@ class ShortLinksTable
                     ->limit(40)
                     ->searchable(query: function ($query, $search) {
                         return $query->where(function ($q) use ($search) {
-                            $q->whereHasMorph('linkable', ['App\Models\User'], function ($query) use ($search) {
-                                $query->where('user_name', 'like', "%{$search}%");
+                            $q->where(function ($q) use ($search) {
+                                $q->where('linkable_type', 'App\Models\User')
+                                    ->whereIn('linkable_id', function ($sub) use ($search) {
+                                        $sub->select('user_uuid')
+                                            ->from('users')
+                                            ->where('user_name', 'like', "%{$search}%");
+                                    });
                             })
-                                ->orWhereHasMorph('linkable', ['App\Models\Project'], function ($query) use ($search) {
-                                    $query->where('project_title', 'like', "%{$search}%");
+                                ->orWhere(function ($q) use ($search) {
+                                    $q->where('linkable_type', 'App\Models\Project')
+                                        ->whereIn('linkable_id', function ($sub) use ($search) {
+                                            $sub->select('project_uuid')
+                                                ->from('projects')
+                                                ->where('project_title', 'like', "%{$search}%");
+                                        });
                                 })
-                                ->orWhereHasMorph('linkable', ['App\Models\Suggestion'], function ($query) use ($search) {
-                                    $query->where('suggestion_title', 'like', "%{$search}%");
+                                ->orWhere(function ($q) use ($search) {
+                                    $q->where('linkable_type', 'App\Models\Suggestion')
+                                        ->whereIn('linkable_id', function ($sub) use ($search) {
+                                            $sub->select('suggestion_uuid')
+                                                ->from('suggestions')
+                                                ->where('suggestion_title', 'like', "%{$search}%");
+                                        });
                                 });
                         });
                     }),
