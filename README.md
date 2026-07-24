@@ -277,12 +277,51 @@ Semua endpoint menggunakan prefix `/api/v1/`.
 
 ### Prasyarat
 
-- PHP >= 8.3 dengan ekstensi: `BCMath`, `Ctype`, `cURL`, `DOM`, `Fileinfo`, `JSON`, `Mbstring`, `OpenSSL`, `PCRE`, `PDO`, `Tokenizer`, `XML`
+**Opsi 1: Menggunakan Docker (Direkomendasikan)**
+- Docker Desktop / Docker Engine & Docker Compose
+
+**Opsi 2: Manual (Tanpa Docker)**
+- PHP >= 8.3 dengan ekstensi lengkap (BCMath, Ctype, cURL, DOM, Fileinfo, JSON, Mbstring, OpenSSL, PCRE, PDO, Tokenizer, XML)
 - Composer 2.x
 - Node.js >= 18 & NPM
 - MySQL >= 8.0
 
-### Langkah Instalasi
+### Langkah Instalasi (Menggunakan Docker / Laravel Sail)
+
+Ini adalah cara termudah karena tidak memerlukan instalasi PHP, Composer, Node.js, atau MySQL di komputer Anda.
+
+```bash
+# 1. Clone repository
+git clone https://github.com/username/InternFolio.git
+cd InternFolio
+
+# 2. Setup environment (pastikan port 3306, 6379, dan 80 tidak terpakai)
+cp .env.example .env
+
+# Tambahkan konfigurasi Docker di akhir file .env (ubah sesuai UID/GID Anda)
+echo "\n# Docker / Sail\nWWWUSER=501\nWWWGROUP=20\nMYSQL_EXTRA_OPTIONS=\nFORWARD_REDIS_PORT=6380" >> .env
+
+# 3. Jalankan Docker di background
+docker compose up -d
+
+# 4. Install PHP dependencies & Generate Key (di dalam container)
+docker compose exec laravel.test composer install
+docker compose exec laravel.test php artisan key:generate
+
+# 5. Jalankan Migrasi & Seeder
+docker compose exec laravel.test php artisan migrate --seed
+
+# 6. Install Node dependencies & Build assets
+docker compose exec laravel.test npm install
+docker compose exec laravel.test npm run dev
+```
+Setelah Vite berjalan, buka **http://localhost** di browser Anda! Admin panel tersedia di **http://localhost/admin**.
+
+---
+
+### Langkah Instalasi (Manual)
+
+Jika Anda tidak ingin menggunakan Docker, jalankan langkah-langkah berikut:
 
 ```bash
 # 1. Clone repository
@@ -299,7 +338,6 @@ npm install
 cp .env.example .env
 php artisan key:generate
 ```
-
 ### Konfigurasi Database
 
 Edit file `.env` dan sesuaikan konfigurasi database:
